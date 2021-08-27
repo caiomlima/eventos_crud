@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Evento - Eventos Hoje</title>
+</head>
+
+<body>
+
+    <h1>Novo Evento</h1>
+
+    <form action="#" method="POST">
+        <label for="nome_evt">Nome do evento</label>
+        <input type="text" id="nome_evt" name="nome_evt"><br><br>
+
+        <label for="desc_evt">Descrição do evento</label>
+        <input type="text" id="desc_evt" name="desc_evt"><br><br>
+
+        <label for="data_evt">Data do evento</label>
+        <input type="text" id="data_evt" name="data_evt"><br><br>
+
+        <label for="qtd_pessoas_evt">Quantidade de pessoas do evento</label>
+        <select id="qtd_pessoas_evt" name="qtd_pessoas_evt">
+            <option value="Até 10 pessoas">Até 10 pessoas</option>
+            <option value="Até 50 pessoas">Até 50 pessoas</option>
+            <option value="Até 100 pessoas">Até 100 pessoas</option>
+            <option value="Até 250 pessoas">Até 250 pessoas</option>
+            <option value="Até 500 pessoas">Até 500 pessoas</option>
+            <option value="Mais de 500 pessoas">Mais de 500 pessoas</option>
+        </select><br><br>
+
+        <label for="regiao_evt">Região do evento</label>
+        <select id="regiao_evt" name="regiao_evt">
+            <option value="Zona Norte">Zona Norte</option>
+            <option value="Zona Sul">Zona Sul</option>
+            <option value="Zona Leste">Zona Leste</option>
+            <option value="Zona Oeste">Zona Oeste</option>
+            <option value="Centro">Centro</option>
+        </select><br><br>
+
+        <label for="endereco_evt">Endereço / Local do evento</label>
+        <input type="text" id="endereco_evt" name="endereco_evt"><br><br>
+
+        <h3>
+            Colocar foto do evento no blob mais tarde
+        </h3><br><br>
+
+        <button type="submit" style="cursor: pointer;" class="button" value="CriarEvt">Criar Evento</button>
+    </form>
+
+</body>
+
+</html>
