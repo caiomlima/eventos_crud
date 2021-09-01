@@ -5,9 +5,13 @@ import com.eventos.repository.EventoRepository;
 import com.eventos.service.IEventoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,18 +23,10 @@ import java.util.Date;
 public class CadastroEventoController {
 
     private EventoModel evtM;
-
     @Autowired
     private EventoRepository evt_repo;
-
     @Autowired
     private IEventoService Ievt;
-
-    @RequestMapping(value = "/novo-evento", method = RequestMethod.GET)
-    public String criarEvtPg(ModelMap model) {
-        model.addAttribute("evento", new EventoModel());
-        return "cadastro_evento";
-    }
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -39,21 +35,40 @@ public class CadastroEventoController {
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
 
-//    @PostMapping
-//    @RequestMapping(value = "/novo-evento", method = RequestMethod.POST)
-//    public void add(@RequestBody EventoModel evt) {
-//        evtS.save(evt);
-//    }
+    @RequestMapping(value = "/novo-evento", method = RequestMethod.GET)
+    public String criarEvtPg(Model model) {
+        EventoModel nevt = new EventoModel();
+        model.addAttribute("evento", nevt);
+        return "cadastro_evento";
+    }
 
     @RequestMapping(value = "/novo-evento", method = RequestMethod.POST)
-    public String addEvento(EventoModel evt) {
+    public String addEvento(@ModelAttribute("evento") EventoModel nevt) {
+        Ievt.saveEvento(nevt);
+        return "redirect:/eventos";
+    }
 
+    // Função para pegar o nome do User que fez o evento
+//    private String getUsernameLogged(Model model) {
+//        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//
+//        if (principal instanceof UserDetails) {
+//            return ((UserDetails) principal).getUsername();
+//        }
+//
+//        return principal.toString();
+//    }
+
+    // Função que faz o novo evento e associa ao user que fez ele
+//    @RequestMapping(value = "/novo-evento", method = RequestMethod.POST)
+//    public String addEvento(Model model, EventoModel evt, BindingResult result) {
 //        if (result.hasErrors()) {
 //            return "cadastro_evento";
 //        }
-
-        Ievt.saveEvento(evt);
-        return "redirect:/";
-    }
+//
+//        evt.setUserName(getUsernameLogged(model));
+//        Ievt.saveEvento(evt);
+//        return "redirect:/eventos";
+//    }
 
 }

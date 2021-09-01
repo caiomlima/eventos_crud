@@ -1,15 +1,19 @@
 package com.eventos.service;
 
 import com.eventos.model.EventoModel;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public interface IEventoService {
 
-    List<EventoModel> getEventosById(int id_evt);
+    List<EventoModel> getEventos();
 
-    //    Optional<EventoModel> getEventosByUsername(String username);
+//    List<EventoModel> getEventosByUsername(String username);
+
+//    Optional<EventoModel> getEventosById(int id_evt);
 
     void updateEvento(EventoModel evt);
 

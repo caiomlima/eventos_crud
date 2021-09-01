@@ -15,14 +15,19 @@ public class MethodsEventoService implements IEventoService{
     @Autowired
     private EventoRepository evt_repo;
 
+//    @Override
+//    public List<EventoModel> getEventosById(int id_evt) {
+//        return evt_repo.findById(id_evt);
+//    }
+
     @Override
-    public List<EventoModel> getEventosById(int id_evt) {
-        return evt_repo.findById(id_evt);
+    public List<EventoModel> getEventos(){
+        return evt_repo.findAll();
     }
 
 //    Opcional: Puxar evento pelo nome do user (Precisa estar em um repository)
 //    @Override
-//    public Optional<EventoModel> getEventosByUsername(String username) {
+//    public List<EventoModel> getEventosByUsername(String username) {
 //        return evt_repo.findByUsername(String username);
 //    }
 
@@ -37,9 +42,7 @@ public class MethodsEventoService implements IEventoService{
     }
 
     @Override
-    public void deleteEvento(int id_evt) {
-        evt_repo.deleteById(id_evt);
-    }
+    public void deleteEvento(int id_evt) { evt_repo.deleteById(id_evt); }
 
     @Override
     public void saveEvento(EventoModel evt) {
@@ -57,7 +60,7 @@ public class MethodsEventoService implements IEventoService{
 //        evt_repo.save(evt);
 //    }
 //
-//    public EventoModel get(Integer id_evt) {
+//    public EventoModel getEventos(Integer id_evt) {
 //        return evt_repo.findById(id_evt).get();
 //    }
 //
