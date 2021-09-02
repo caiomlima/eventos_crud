@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novo Evento - Eventos Hoje</title>
+    <title>Editar Evento - Eventos Hoje</title>
 </head>
 
 <body>
 
-    <h1>Novo Evento</h1>
+    <h1>Editar Evento</h1>
 
     <form action="#" th:action="@{/salvar-evento}" th:object="${evento}" method="POST">
+        <input type="hidden" th:field="*{id_evt}" />
+
         <label for="nome_evt">Nome do evento</label>
         <input type="text" id="nome_evt" th:field="*{nome_evt}" name="nome_evt"><br><br>
 
@@ -50,7 +52,7 @@
         <br>
         <br>
 
-        <button type="submit" style="cursor: pointer;" class="button" value="CriarEvt">Criar Evento</button>
+        <button type="submit" style="cursor: pointer;" class="button">Confirmar</button>
     </form>
 
 </body>

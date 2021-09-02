@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MethodsEventoService implements IEventoService{
@@ -23,6 +24,18 @@ public class MethodsEventoService implements IEventoService{
     @Override
     public List<EventoModel> getEventos(){
         return evt_repo.findAll();
+    }
+
+    @Override
+    public EventoModel getEventoById(int id_evt) {
+        Optional<EventoModel> opt = evt_repo.findById(id_evt);
+        EventoModel evento = null;
+        if (opt.isPresent()) {
+            evento = opt.get();
+        } else {
+            throw new RuntimeException("Evento não encontrado eplo id " + id_evt);
+        }
+        return evento;
     }
 
 //    Opcional: Puxar evento pelo nome do user (Precisa estar em um repository)

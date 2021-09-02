@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de eventos - Eventos Hoje</title>
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 
 <body>
@@ -18,7 +19,7 @@
 
     <br>
 
-    <table class="eventos-table">
+    <table>
         <thead>
             <tr>
                 <th>Nome do evento</th>
@@ -38,6 +39,10 @@
                 <td th:text="${evento.endereco_evt}"></td>
                 <td th:text="${evento.regiao_evt}"></td>
                 <td th:text="${evento.qtd_pessoas_evt}"></td>
+                <td>
+                    <a type="button" class="btn-up" th:href="@{/editar-evento/{id_evt}(id_evt=${evento.id_evt})}">Update</a>
+                    <a type="button" class="btn-del" th:href="@{/excluir-evento/{id_evt}(id_evt=${evento.id_evt})}">Excluir</a>
+                </td>
             </tr>
         </tbody>
     </table>

@@ -42,7 +42,7 @@ public class CadastroEventoController {
         return "cadastro_evento";
     }
 
-    @RequestMapping(value = "/novo-evento", method = RequestMethod.POST)
+    @RequestMapping(value = "/salvar-evento", method = RequestMethod.POST)
     public String addEvento(@ModelAttribute("evento") EventoModel nevt) {
         Ievt.saveEvento(nevt);
         return "redirect:/eventos";

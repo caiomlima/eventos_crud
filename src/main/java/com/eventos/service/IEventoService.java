@@ -15,6 +15,8 @@ public interface IEventoService {
 
 //    Optional<EventoModel> getEventosById(int id_evt);
 
+    EventoModel getEventoById(int id_evt);
+
     void updateEvento(EventoModel evt);
 
     void addEvento(String nome_evt, String desc_evt, Date data_evt, String qtd_pessoas_evt, String regiao_evt, String endereco_evt);
