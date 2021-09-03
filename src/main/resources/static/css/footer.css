@@ -1,0 +1,52 @@
+.footer-evthj {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #282d32;
+    color: white;
+    float: center;
+    padding: 14px;
+}
+
+.infos-div {
+    padding-left: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-evthj .social {
+    text-align: center;
+}
+
+.footer-evthj .social>a {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    color: inherit;
+    opacity: 0.75;
+}
+
+.footer-evthj .social>a:hover {
+    opacity: 0.9;
+}
+
+.footer-evthj .info-criador {
+    font-size: 17px;
+    text-decoration: none;
+    font-weight: lighter;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.footer-evthj .info-criador>i {
+    color: red;
+}
+
+
+/* Credit to https://epicbootstrap.com/snippets/footer-basic */

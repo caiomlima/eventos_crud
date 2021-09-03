@@ -1,31 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Eventos Hoje</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="https://kit.fontawesome.com/cdf8c5431e.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <h1>Bem vindo ao Eventos Hoje</h1>
+    <div th:replace="fragments/header"></div>
 
-    <a href="/login">
-        <h3>Login</h3>
-    </a>
-
-    <a href="/cadastro">
-        <h3>Cadastre-se</h3>
-    </a>
-
-    <a href="/eventos">
-        <h3>Eventos</h3>
-    </a>
-
-    <a href="/novo-evento">
-        <h3>Criar Evento</h3>
-    </a>
+    <div th:replace="fragments/footer"></div>
 
 </body>
 
