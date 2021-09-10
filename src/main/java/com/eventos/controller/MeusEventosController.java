@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MeusEventosController {
 
 //    @Autowired
-//    IEventoService evtS;
+//    IEventoService evt_serv;
 //
 //    @RequestMapping("/meus-eventos")
-//    public String exibirMeusEventos(Model model) {
+//    public String meusEventosPg(Model model) {
 //        String name = getUsernameLogged(model);
-//        model.addAttribute("evt", evtS.getEventosByUsername(username)) ;
+//        model.addAttribute("evt", evt_serv.getEventosByUsername(username)) ;
 //
 //        return "meus_eventos";
 //    }

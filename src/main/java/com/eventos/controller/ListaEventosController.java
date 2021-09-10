@@ -14,27 +14,27 @@ import java.util.List;
 @Controller
 public class ListaEventosController {
 
-    private EventoModel evtM;
-    private EventoRepository evtRepo;
+    private EventoModel evt_model;
+    private EventoRepository evt_repo;
 
     @Autowired
     private IEventoService Ievt;
 
     @RequestMapping("/eventos")
-    public String eventos(Model model) {
+    public String eventosPg(Model model) {
         model.addAttribute("evt", Ievt.getEventos());
         return "lista_eventos";
     }
 
-    @GetMapping("/excluir-evento/{id_evt}")
-    public String deleteEvento(@PathVariable(value = "id_evt") int id_evt) {
-        this.Ievt.deleteEvento(id_evt);
+    @GetMapping("/excluir-evento/{idEvt}")
+    public String deleteEvento(@PathVariable(value = "idEvt") int idEvt) {
+        this.Ievt.deleteEvento(idEvt);
         return "redirect:/eventos";
     }
 
-    @RequestMapping(value = "/editar-evento/{id_evt}", method = RequestMethod.GET)
-    public String updateEvento(@PathVariable(value = "id_evt") int id_evt, Model model) {
-        EventoModel evento = Ievt.getEventoById(id_evt);
+    @RequestMapping(value = "/editar-evento/{idEvt}", method = RequestMethod.GET)
+    public String updateEvento(@PathVariable(value = "idEvt") int idEvt, Model model) {
+        EventoModel evento = Ievt.getEventoById(idEvt);
 
         model.addAttribute("evento", evento);
 

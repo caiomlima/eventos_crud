@@ -20,19 +20,21 @@
     <h1>Editar Evento</h1>
 
     <form action="#" th:action="@{/salvar-evento}" th:object="${evento}" method="POST">
-        <input type="hidden" th:field="*{id_evt}" />
+        <input type="hidden" th:field="*{idEvt}" />
 
-        <label for="nome_evt">Nome do evento</label>
-        <input type="text" id="nome_evt" th:field="*{nome_evt}" name="nome_evt"><br><br>
+        <label for="nomeEvt">Nome do evento</label>
+        <input type="text" id="nomeEvt" th:field="*{nomeEvt}" name="nomeEvt"><br><br>
 
-        <label for="desc_evt">Descrição do evento</label>
-        <input type="text" id="desc_evt" th:field="*{desc_evt}" name="desc_evt"><br><br>
+        <label for="descEvt">Descrição do evento</label>
+        <textarea type="text" id="descEvt" th:field="*{descEvt}" name="descEvt" rows="10" cols="80">
+            
+        </textarea><br><br>
 
-        <label for="data_evt">Data do evento</label>
-        <input type="text" id="data_evt" th:field="*{data_evt}" name="data_evt"><br><br>
+        <label for="dataEvt">Data do evento</label>
+        <input type="text" id="dataEvt" th:field="*{dataEvt}" name="dataEvt" inputmode="numeric" placeholder="__/__/____"><br><br>
 
-        <label for="qtd_pessoas_evt">Quantidade de pessoas do evento</label>
-        <select id="qtd_pessoas_evt" th:field="*{qtd_pessoas_evt}" name="qtd_pessoas_evt">
+        <label for="qtdPessEvt">Quantidade de pessoas do evento</label>
+        <select id="qtdPessEvt" th:field="*{qtdPessEvt}" name="qtdPessEvt">
             <option value="Até 10 pessoas">Até 10 pessoas</option>
             <option value="Até 50 pessoas">Até 50 pessoas</option>
             <option value="Até 100 pessoas">Até 100 pessoas</option>
@@ -41,8 +43,8 @@
             <option value="Mais de 500 pessoas">Mais de 500 pessoas</option>
         </select><br><br>
 
-        <label for="regiao_evt">Região do evento</label>
-        <select id="regiao_evt" th:field="*{regiao_evt}" name="regiao_evt">
+        <label for="regiaoEvt">Região do evento</label>
+        <select id="regiaoEvt" th:field="*{regiaoEvt}" name="regiaoEvt">
             <option value="Zona Norte">Zona Norte</option>
             <option value="Zona Sul">Zona Sul</option>
             <option value="Zona Leste">Zona Leste</option>
@@ -50,20 +52,16 @@
             <option value="Centro">Centro</option>
         </select><br><br>
 
-        <label for="endereco_evt">Endereço / Local do evento</label>
-        <input type="text" id="endereco_evt" th:field="*{endereco_evt}" name="endereco_evt"><br><br>
-
-        <h3>
-            Colocar foto do evento no blob mais tarde
-        </h3>
-        <br>
-        <br>
+        <label for="endrcEvt">Endereço / Local do evento</label>
+        <input type="text" id="endrcEvt" th:field="*{endrcEvt}" name="endrcEvt"><br><br>
 
         <button type="submit" style="cursor: pointer;" class="button">Confirmar</button>
     </form>
 
 
     <div th:replace="fragments/footer"></div>
+
+    <!-- <input type="hidden" th:field="*{idEvt}" /> -->
 
 </body>
 

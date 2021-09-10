@@ -13,15 +13,15 @@ public interface IEventoService {
 
 //    List<EventoModel> getEventosByUsername(String username);
 
-//    Optional<EventoModel> getEventosById(int id_evt);
+//    Optional<EventoModel> getEventosById(int idEvt);
 
-    EventoModel getEventoById(int id_evt);
+    EventoModel getEventoById(int idEvt);
 
     void updateEvento(EventoModel evt);
 
-    void addEvento(String nome_evt, String desc_evt, Date data_evt, String qtd_pessoas_evt, String regiao_evt, String endereco_evt);
+    void addEvento(String nomeEvt, String descEvt, Date dataEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt);
 
-    void deleteEvento(int id_evt);
+    void deleteEvento(int idEvt);
 
     void saveEvento(EventoModel evt);
 }

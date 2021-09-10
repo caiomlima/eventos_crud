@@ -17,8 +17,8 @@ public class MethodsEventoService implements IEventoService{
     private EventoRepository evt_repo;
 
 //    @Override
-//    public List<EventoModel> getEventosById(int id_evt) {
-//        return evt_repo.findById(id_evt);
+//    public List<EventoModel> getEventosById(int idEvt) {
+//        return evt_repo.findById(idEvt);
 //    }
 
     @Override
@@ -27,13 +27,13 @@ public class MethodsEventoService implements IEventoService{
     }
 
     @Override
-    public EventoModel getEventoById(int id_evt) {
-        Optional<EventoModel> opt = evt_repo.findById(id_evt);
+    public EventoModel getEventoById(int idEvt) {
+        Optional<EventoModel> opt = evt_repo.findById(idEvt);
         EventoModel evento = null;
         if (opt.isPresent()) {
             evento = opt.get();
         } else {
-            throw new RuntimeException("Evento não encontrado eplo id " + id_evt);
+            throw new RuntimeException("Evento não encontrado pelo id " + idEvt);
         }
         return evento;
     }
@@ -50,34 +50,15 @@ public class MethodsEventoService implements IEventoService{
     }
 
     @Override
-    public void addEvento(String nome_evt, String desc_evt, Date data_evt, String qtd_pessoas_evt, String regiao_evt, String endereco_evt) {
-        evt_repo.save(new EventoModel(nome_evt, desc_evt, data_evt, qtd_pessoas_evt, regiao_evt, endereco_evt));
+    public void addEvento(String nomeEvt, String descEvt, Date dataEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt) {
+        evt_repo.save(new EventoModel(nomeEvt, descEvt, dataEvt, qtdPessEvt, regiaoEvt, endrcEvt));
     }
 
     @Override
-    public void deleteEvento(int id_evt) { evt_repo.deleteById(id_evt); }
+    public void deleteEvento(int idEvt) { evt_repo.deleteById(idEvt); }
 
     @Override
     public void saveEvento(EventoModel evt) {
         evt_repo.save(evt);
     }
-
-
-//    Antigos metodos
-
-//    public List<EventoModel> listAll() {
-//        return evt_repo.findAll();
-//    }
-//
-//    public void save(EventoModel evt) {
-//        evt_repo.save(evt);
-//    }
-//
-//    public EventoModel getEventos(Integer id_evt) {
-//        return evt_repo.findById(id_evt).get();
-//    }
-//
-//    public void delete(Integer id_evt) {
-//        evt_repo.deleteById(id_evt);
-//    }
 }

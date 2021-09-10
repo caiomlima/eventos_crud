@@ -22,11 +22,11 @@ import java.util.Date;
 @Controller
 public class CadastroEventoController {
 
-    private EventoModel evtM;
+    private EventoModel evt_model;
     @Autowired
     private EventoRepository evt_repo;
     @Autowired
-    private IEventoService Ievt;
+    private IEventoService evt_serv;
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -44,7 +44,7 @@ public class CadastroEventoController {
 
     @RequestMapping(value = "/salvar-evento", method = RequestMethod.POST)
     public String addEvento(@ModelAttribute("evento") EventoModel nevt) {
-        Ievt.saveEvento(nevt);
+        evt_serv.saveEvento(nevt);
         return "redirect:/eventos";
     }
 
@@ -67,7 +67,7 @@ public class CadastroEventoController {
 //        }
 //
 //        evt.setUserName(getUsernameLogged(model));
-//        Ievt.saveEvento(evt);
+//        evt_serv.saveEvento(evt);
 //        return "redirect:/eventos";
 //    }
 

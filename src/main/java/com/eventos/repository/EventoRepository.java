@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface EventoRepository extends JpaRepository<EventoModel, Integer> {
 //    @Autowired
-//    List<EventoModel> findById(int id_evt);
+//    List<EventoModel> findById(int idEvt);
 
 //    @Autowired
 //    List<EventoModel> findByUsername(String username);

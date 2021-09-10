@@ -16,9 +16,6 @@
 
     <div th:replace="fragments/header"></div>
 
-
-    <h1>Eventos</h1>
-
     <div class="eventos-list">
         Lista de eventos ativos no momento
     </div>
@@ -39,15 +36,15 @@
 
         <tbody>
             <tr th:each="evento : ${evt}">
-                <td th:text="${evento.nome_evt}"></td>
-                <td th:text="${evento.desc_evt}"></td>
-                <td th:text="${evento.data_evt}"></td>
-                <td th:text="${evento.endereco_evt}"></td>
-                <td th:text="${evento.regiao_evt}"></td>
-                <td th:text="${evento.qtd_pessoas_evt}"></td>
+                <td th:text="${evento.nomeEvt}"></td>
+                <td th:text="${evento.descEvt}"></td>
+                <td th:text="${evento.dataEvt}"></td>
+                <td th:text="${evento.endrcEvt}"></td>
+                <td th:text="${evento.regiaoEvt}"></td>
+                <td th:text="${evento.qtdPessEvt}"></td>
                 <td>
-                    <a type="button" class="btn-up" th:href="@{/editar-evento/{id_evt}(id_evt=${evento.id_evt})}">Update</a>
-                    <a type="button" class="btn-del" th:href="@{/excluir-evento/{id_evt}(id_evt=${evento.id_evt})}">Excluir</a>
+                    <a type="button" class="btn-up" th:href="@{/editar-evento/{idEvt}(idEvt=${evento.idEvt})}">Update</a>
+                    <a type="button" class="btn-del" th:href="@{/excluir-evento/{idEvt}(idEvt=${evento.idEvt})}">Excluir</a>
                 </td>
             </tr>
         </tbody>

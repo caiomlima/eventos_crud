@@ -11,61 +11,60 @@ public class EventoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_evt;
+    private int idEvt;
 
-    @Column(name="nome_evento", nullable = false, length = 200)
-    private String nome_evt;
+    @Column(nullable = false, length = 200)
+    private String nomeEvt;
 
-    @Column(name="desc_evento", nullable = false, length = 1000)
-    private String desc_evt;
+    @Column(nullable = false, length = 1000)
+    private String descEvt;
 
     // Colocar o seguinte comando na database evthj:
     // ALTER TABLE `eventos` CHANGE `data_evento` `data_evento` DATE;
-    @Column(name="data_evento", nullable = false)
-    private Date data_evt;
+    @Column(nullable = false)
+    private Date dataEvt;
 
-    @Column(name="qtd_pessoas_evento", nullable = false)
-    private String qtd_pessoas_evt;
+    @Column(nullable = false)
+    private String qtdPessEvt;
 
-    @Column(name="regiao_evento", nullable = false)
-    private String regiao_evt;
+    @Column(nullable = false)
+    private String regiaoEvt;
 
-    @Column(name="endereco_evento", nullable = false, length = 250)
-    private String endereco_evt;
+    @Column(nullable = false, length = 250)
+    private String endrcEvt;
 
     public EventoModel() {
         super();
     }
 
-    public EventoModel(String nome_evt, String desc_evt, Date data_evt, String qtd_pessoas_evt, String regiao_evt, String endereco_evt) {
+    public EventoModel(String nomeEvt, String descEvt, Date dataEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt) {
         super();
-        this.nome_evt = nome_evt;
-        this.desc_evt = desc_evt;
-        this.data_evt = data_evt;
-        this.qtd_pessoas_evt = qtd_pessoas_evt;
-        this.regiao_evt = regiao_evt;
-        this.endereco_evt = endereco_evt;
+        this.nomeEvt = nomeEvt;
+        this.descEvt = descEvt;
+        this.dataEvt = dataEvt;
+        this.qtdPessEvt = qtdPessEvt;
+        this.regiaoEvt = regiaoEvt;
+        this.endrcEvt = endrcEvt;
     }
 
-    public int getId_evt() { return id_evt; }
-    public void setId_evt(int id_evt) { this.id_evt = id_evt; }
+    public int getIdEvt() { return idEvt; }
+    public void setIdEvt(int idEvt) { this.idEvt = idEvt; }
 
-    public String getNome_evt() { return nome_evt; }
-    public void setNome_evt(String nome_evt) { this.nome_evt = nome_evt; }
+    public String getNomeEvt() { return nomeEvt; }
+    public void setNomeEvt(String nomeEvt) { this.nomeEvt = nomeEvt; }
 
-    public String getDesc_evt() { return desc_evt; }
-    public void setDesc_evt(String desc_evt) { this.desc_evt = desc_evt; }
+    public String getDescEvt() { return descEvt; }
+    public void setDescEvt(String descEvt) { this.descEvt = descEvt; }
 
-    public Date getData_evt() { return data_evt; }
-    public void setData_evt(Date data_evt) { this.data_evt = data_evt; }
+    public Date getDataEvt() { return dataEvt; }
+    public void setDataEvt(Date dataEvt) { this.dataEvt = dataEvt; }
 
-    public String getQtd_pessoas_evt() { return qtd_pessoas_evt; }
-    public void setQtd_pessoas_evt(String qtd_pessoas_evt) { this.qtd_pessoas_evt = qtd_pessoas_evt; }
+    public String getQtdPessEvt() { return qtdPessEvt; }
+    public void setQtdPessEvt(String qtdPessEvt) { this.qtdPessEvt = qtdPessEvt; }
 
-    public String getRegiao_evt() { return regiao_evt; }
-    public void setRegiao_evt(String regiao_evt) { this.regiao_evt = regiao_evt; }
+    public String getRegiaoEvt() { return regiaoEvt; }
+    public void setRegiaoEvt(String regiaoEvt) { this.regiaoEvt = regiaoEvt; }
 
-    public String getEndereco_evt() { return endereco_evt; }
-    public void setEndereco_evt(String endereco_evt) { this.endereco_evt = endereco_evt; }
-
+    public String getEndrcEvt() { return endrcEvt; }
+    public void setEndrcEvt(String endrcEvt) { this.endrcEvt = endrcEvt; }
 }
