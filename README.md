@@ -4,5 +4,5 @@ No momento, o site contém:
 
 - Conexão com o MySQL
 - Thymeleaf nas pags. para input e output de dados (JSP)
-- Criação, exibição, edição e exclusão dos eventos (CRUD completo dos eventos) - (JPAg)
+- Criação, exibição, edição e exclusão dos eventos (CRUD completo dos eventos) - (JPA)
 - Criação de usuário com role "USER" - relação ManyToMany no MySQL entre as tabelas "usuarios", "roles" e "relacao_users_roles" (onde mostra o id do usuário e o id da role)
