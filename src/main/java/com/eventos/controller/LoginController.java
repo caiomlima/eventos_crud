@@ -17,11 +17,4 @@ public class LoginController {
         return "login.html";
     }
 
-//    @RequestMapping(value = "/log-in", method = RequestMethod.POST)
-//    public String loginAction(Model model) {
-//        return null;
-//    }
-
-
-
 }
