@@ -36,7 +36,7 @@ public class MethodsUsuarioService implements IUsuarioService {
         user.setNomeUsr(usr.getNomeUsr());
         user.setEmailUsr(usr.getEmailUsr());
         user.setSenhaUsr(passEncoder.encode(usr.getSenhaUsr()));
-        user.setRoles(Arrays.asList(new RoleModel("ROLE_USER")));
+        user.setRoles(Arrays.asList(new RoleModel("USER")));
         return usr_Repo.save(user);
     }
 
