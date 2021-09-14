@@ -7,12 +7,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface EventoRepository extends JpaRepository<EventoModel, Integer> {
-//    @Autowired
-//    List<EventoModel> findById(int idEvt);
+    @Autowired
+    List<EventoModel> findByAdmEvt(String nomeAdm);
 
-//    @Autowired
-//    List<EventoModel> findByUsername(String username);
+    @Autowired
+    Optional<EventoModel> findById(int idEvt);
 }

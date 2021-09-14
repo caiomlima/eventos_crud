@@ -14,7 +14,7 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPg(Model model) {
-        return "login.html";
+        return "login";
     }
 
 }

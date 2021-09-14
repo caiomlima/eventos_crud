@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de eventos - Eventos Hoje</title>
+    <title>Meus eventos - Eventos Hoje</title>
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/index.css">
@@ -17,7 +17,8 @@
     <div th:replace="fragments/header"></div>
 
     <div class="eventos-list">
-        Lista de eventos ativos no momento
+        Lista dos eventos de
+        <div sec:authentication="name"></div>
     </div>
 
     <br>
@@ -31,7 +32,6 @@
                 <th>Endereço do evento</th>
                 <th>Região do evento</th>
                 <th>Quantidade de pessoas no evento</th>
-                <th>Responsavel do evento</th>
             </tr>
         </thead>
 
@@ -43,7 +43,10 @@
                 <td th:text="${evento.endrcEvt}"></td>
                 <td th:text="${evento.regiaoEvt}"></td>
                 <td th:text="${evento.qtdPessEvt}"></td>
-                <td th:text="${evento.admEvt}"></td>
+                <td>
+                    <a type="button" class="btn-up" th:href="@{/editar-evento/{idEvt}(idEvt=${evento.idEvt})}">Update</a>
+                    <a type="button" class="btn-del" th:href="@{/excluir-evento/{idEvt}(idEvt=${evento.idEvt})}">Excluir</a>
+                </td>
             </tr>
         </tbody>
     </table>

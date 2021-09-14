@@ -13,10 +13,10 @@ public class UsuarioModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idUsr;
 
-    @Column(nullable = false, length = 32)
+    @Column(nullable = false, length = 32, unique = true)
     private String nomeUsr;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String emailUsr;
 
     @Column(nullable = false)
@@ -43,11 +43,11 @@ public class UsuarioModel {
         this.senhaUsr = senhaUsr;
     }
 
-    public UsuarioModel(String nomeUsr, String emailUsr, String senhaUsr, Collection<RoleModel> roles) {
+    public UsuarioModel(String nomeUsr, String emailUsr, String senhaUsr, Collection<RoleModel> role) {
         this.nomeUsr = nomeUsr;
         this.emailUsr = emailUsr;
         this.senhaUsr = senhaUsr;
-        this.role = roles;
+        this.role = role;
     }
 
     public int getIdUsr() { return idUsr; }
@@ -62,8 +62,8 @@ public class UsuarioModel {
     public String getSenhaUsr() { return senhaUsr; }
     public void setSenhaUsr(String senhaUsr) { this.senhaUsr = senhaUsr; }
 
-    public Collection<RoleModel> getRoles() { return role; }
-    public void setRoles(Collection<RoleModel> roles) { this.role = roles; }
+    public Collection<RoleModel> getRole() { return role; }
+    public void setRole(Collection<RoleModel> role) { this.role = role; }
 
 //    @Override
 //    public String toString() {

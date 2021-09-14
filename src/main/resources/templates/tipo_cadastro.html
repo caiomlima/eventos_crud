@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Eventos Hoje</title>
+    <title>Tipo de cadastro - Eventos Hoje</title>
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/index.css">
@@ -13,21 +13,15 @@
 </head>
 
 <body>
-
     <div th:replace="fragments/header"></div>
 
+    <h2>Selecione o tipo de cadastro</h2>
 
-    <form action="#" th:method="@{/login}" method="POST">
+    <a href="/cadastre-se/usuario">Cadastro de usuário comum</a>
 
-        <label for="email">E-mail</label>
-        <input type="text" id="email" name="email">
+    <br><br>
 
-        <label for="senha">Senha</label>
-        <input type="text" id="senha" name="senha">
-
-        <button type="submit" style="cursor: pointer;" class="button" value="FazerLogin">Fazer Login</button>
-
-    </form>
+    <a href="/cadastre-se/adm">Cadastro de ADM (organizador) de eventos</a>
 
     <div th:replace="fragments/footer"></div>
 

@@ -22,7 +22,6 @@ import java.util.Date;
 @Controller
 public class CadastroEventoController {
 
-    private EventoModel evt_model;
     @Autowired
     private EventoRepository evt_repo;
     @Autowired
@@ -37,38 +36,36 @@ public class CadastroEventoController {
 
     @RequestMapping(value = "/novo-evento", method = RequestMethod.GET)
     public String criarEvtPg(Model model) {
-        EventoModel nevt = new EventoModel();
-        model.addAttribute("evento", nevt);
+        EventoModel nEvt = new EventoModel();
+        model.addAttribute("evento", nEvt);
         return "cadastro_evento";
     }
 
-    @RequestMapping(value = "/salvar-evento", method = RequestMethod.POST)
-    public String addEvento(@ModelAttribute("evento") EventoModel nevt) {
-        evt_serv.saveEvento(nevt);
-        return "redirect:/eventos";
-    }
-
-    // Função para pegar o nome do User que fez o evento
-//    private String getUsernameLogged(Model model) {
-//        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//
-//        if (principal instanceof UserDetails) {
-//            return ((UserDetails) principal).getUsername();
-//        }
-//
-//        return principal.toString();
-//    }
-
-    // Função que faz o novo evento e associa ao user que fez ele
-//    @RequestMapping(value = "/novo-evento", method = RequestMethod.POST)
-//    public String addEvento(Model model, EventoModel evt, BindingResult result) {
-//        if (result.hasErrors()) {
-//            return "cadastro_evento";
-//        }
-//
-//        evt.setUserName(getUsernameLogged(model));
-//        evt_serv.saveEvento(evt);
+    // Antigo metodo de criar eventos (qq um sem auth pode fazer um evento)
+//    @RequestMapping(value = "/salvar-evento", method = RequestMethod.POST)
+//    public String addEvento(@ModelAttribute("evento") EventoModel nevt) {
+//        evt_serv.saveEvento(nevt);
 //        return "redirect:/eventos";
 //    }
+
+//     Função para pegar o nome do adm que fez o evento
+    private String getUsernameLogged(Model model) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            return ((UserDetails) principal).getUsername();
+        }
+        return principal.toString();
+    }
+
+//     Função que faz o novo evento e associa ao adm que fez ele
+    @RequestMapping(value = "/salvar-evento", method = RequestMethod.POST)
+    public String addEvento(Model model, EventoModel evt, BindingResult result) {
+        if (result.hasErrors()) {
+            return "cadastro_evento";
+        }
+        evt.setAdmEvt(getUsernameLogged(model));
+        evt_serv.saveEvento(evt);
+        return "redirect:/meus-eventos";
+    }
 
 }

@@ -10,35 +10,21 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ListaEventosController {
 
-    private EventoModel evt_model;
-    private EventoRepository evt_repo;
+//    private EventoModel evt_model;
+//    private EventoRepository evt_repo;
 
     @Autowired
-    private IEventoService Ievt;
+    private IEventoService evt_serv;
 
     @RequestMapping("/eventos")
     public String eventosPg(Model model) {
-        model.addAttribute("evt", Ievt.getEventos());
+        model.addAttribute("evt", evt_serv.getEventos());
         return "lista_eventos";
-    }
-
-    @GetMapping("/excluir-evento/{idEvt}")
-    public String deleteEvento(@PathVariable(value = "idEvt") int idEvt) {
-        this.Ievt.deleteEvento(idEvt);
-        return "redirect:/eventos";
-    }
-
-    @RequestMapping(value = "/editar-evento/{idEvt}", method = RequestMethod.GET)
-    public String updateEvento(@PathVariable(value = "idEvt") int idEvt, Model model) {
-        EventoModel evento = Ievt.getEventoById(idEvt);
-
-        model.addAttribute("evento", evento);
-
-        return "update_evento";
     }
 
 }

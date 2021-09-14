@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -15,10 +15,13 @@
 
         <div class="nav-header">
             <a href="/eventos" class="eventos-btn">Eventos</a>
-            <a href="/novo-evento" class="eventos-btn">Criar eventos</a>
-            <a href="/login" class="login-btn">Login</a>
-            <a href="/cadastre-se" class="cadastro-btn">cadastre-se</a>
+            <!-- <a sec:authorize="hasRole('USER')" href="/novo-evento" class="eventos-btn">Criar eventos</a> -->
+            <a sec:authorize="hasAuthority('ADM')" href="/novo-evento" class="eventos-btn">Criar eventos</a>
+            <a sec:authorize="hasAuthority('ADM')" href="/meus-eventos" class="eventos-btn">Meus Eventos</a>
             <a href="/sobre" class="sobre-btn">Sobre</a>
+            <a sec:authorize="isAnonymous()" href="/login" class="login-btn">Login</a>
+            <a sec:authorize="isAnonymous()" href="/cadastre-se" class="cadastro-btn">cadastre-se</a>
+            <a sec:authorize="isAuthenticated()" href="/logout" class="cadastro-btn">Logout</a>
         </div>
     </div>
 

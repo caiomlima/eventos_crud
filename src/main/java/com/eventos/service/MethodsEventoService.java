@@ -16,33 +16,26 @@ public class MethodsEventoService implements IEventoService{
     @Autowired
     private EventoRepository evt_repo;
 
-//    @Override
-//    public List<EventoModel> getEventosById(int idEvt) {
-//        return evt_repo.findById(idEvt);
-//    }
-
+    // Mostra Todos os eventos
     @Override
     public List<EventoModel> getEventos(){
         return evt_repo.findAll();
     }
 
+    // Mostra apenas eventos feitos por "x" adm
     @Override
-    public EventoModel getEventoById(int idEvt) {
-        Optional<EventoModel> opt = evt_repo.findById(idEvt);
-        EventoModel evento = null;
-        if (opt.isPresent()) {
-            evento = opt.get();
-        } else {
-            throw new RuntimeException("Evento não encontrado pelo id " + idEvt);
-        }
-        return evento;
+    public List<EventoModel> getEventosByAdmName(String nomeAdm) {
+        return evt_repo.findByAdmEvt(nomeAdm);
     }
 
-//    Opcional: Puxar evento pelo nome do user (Precisa estar em um repository)
-//    @Override
-//    public List<EventoModel> getEventosByUsername(String username) {
-//        return evt_repo.findByUsername(String username);
-//    }
+    // Mostra um evento por "x" id
+    @Override
+    public Optional<EventoModel> getEventoById(int idEvt) {
+        return evt_repo.findById(idEvt);
+    }
+
+
+    // Metodos CRUD
 
     @Override
     public void updateEvento(EventoModel evt) {
@@ -50,8 +43,8 @@ public class MethodsEventoService implements IEventoService{
     }
 
     @Override
-    public void addEvento(String nomeEvt, String descEvt, Date dataEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt) {
-        evt_repo.save(new EventoModel(nomeEvt, descEvt, dataEvt, qtdPessEvt, regiaoEvt, endrcEvt));
+    public void addEvento(String nomeEvt, String descEvt, Date dataEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt, String admEvt) {
+        evt_repo.save(new EventoModel(nomeEvt, descEvt, dataEvt, qtdPessEvt, regiaoEvt, endrcEvt, admEvt));
     }
 
     @Override

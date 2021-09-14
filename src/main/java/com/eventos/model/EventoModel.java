@@ -33,11 +33,14 @@ public class EventoModel {
     @Column(nullable = false, length = 250)
     private String endrcEvt;
 
+    @Column(nullable = false)
+    private String admEvt;
+
     public EventoModel() {
         super();
     }
 
-    public EventoModel(String nomeEvt, String descEvt, Date dataEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt) {
+    public EventoModel(String nomeEvt, String descEvt, Date dataEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt, String admEvt) {
         super();
         this.nomeEvt = nomeEvt;
         this.descEvt = descEvt;
@@ -45,6 +48,7 @@ public class EventoModel {
         this.qtdPessEvt = qtdPessEvt;
         this.regiaoEvt = regiaoEvt;
         this.endrcEvt = endrcEvt;
+        this.admEvt = admEvt;
     }
 
     public int getIdEvt() { return idEvt; }
@@ -67,4 +71,7 @@ public class EventoModel {
 
     public String getEndrcEvt() { return endrcEvt; }
     public void setEndrcEvt(String endrcEvt) { this.endrcEvt = endrcEvt; }
+
+    public String getAdmEvt() { return admEvt; }
+    public void setAdmEvt(String admEvt) { this.admEvt = admEvt; }
 }

@@ -17,7 +17,7 @@
     <div th:replace="fragments/header"></div>
 
 
-    <form action="#" th:action="@{/concluir-cadastro}" th:object="${usuario}" method="POST">
+    <form action="#" th:action="@{/concluir-cadastro/usuario}" th:object="${usuario}" method="POST">
         <label for="nomeUsr">Nome de usuário</label>
         <input type="text" id="nomeUsr" th:field="*{nomeUsr}" name="nomeUsr"><br><br>
 
