@@ -1,8 +1,8 @@
 package com.eventos.service;
 
-import com.eventos.model.AdmModel;
+import com.eventos.model.OrgModel;
 import com.eventos.model.RoleModel;
-import com.eventos.repository.AdmRepository;
+import com.eventos.repository.OrgRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,37 +16,36 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 @Service
-public class MethodsAdmService implements IAdmService{
+public class MethodsOrgService implements IOrgService {
 
     @Autowired
-    private AdmRepository adm_repo;
+    private OrgRepository org_repo;
 
     @Autowired
     private BCryptPasswordEncoder passEncoder;
 
 
-    public AdmModel findByEmail(String emailAdm) {
-        return adm_repo.findByEmailAdm(emailAdm);
+    public OrgModel findByEmail(String emailOrg) {
+        return org_repo.findByEmailOrg(emailOrg);
     }
 
-    public AdmModel saveNovoAdm(AdmModel adm) {
-        AdmModel nAdm = new AdmModel();
-        nAdm.setNomeAdm(adm.getNomeAdm());
-        nAdm.setEmailAdm(adm.getEmailAdm());
-        nAdm.setSenhaAdm(passEncoder.encode(adm.getSenhaAdm()));
-        nAdm.setDescAdm((adm.getDescAdm()));
-        nAdm.setRole(Arrays.asList(new RoleModel("ADM")));
-        return adm_repo.save(nAdm);
+    public OrgModel saveNovoOrg(OrgModel org) {
+        OrgModel nOrg = new OrgModel();
+        nOrg.setNomeOrg(org.getNomeOrg());
+        nOrg.setEmailOrg(org.getEmailOrg());
+        nOrg.setSenhaOrg(passEncoder.encode(org.getSenhaOrg()));
+        nOrg.setDescOrg((org.getDescOrg()));
+        nOrg.setRole(Arrays.asList(new RoleModel("ORG")));
+        return org_repo.save(nOrg);
     }
 
-    // Dá a um adm recentemente criado a role "ADM"
-    //    @Override
-    public UserDetails loadUserByUsername(String emailAdm) throws UsernameNotFoundException {
-        AdmModel nAdm = adm_repo.findByEmailAdm(emailAdm);
-        if (nAdm == null) {
+    @Override
+    public UserDetails loadUserByUsername(String emailOrg) throws UsernameNotFoundException {
+        OrgModel org = org_repo.findByEmailOrg(emailOrg);
+        if (org == null) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
-        return new org.springframework.security.core.userdetails.User(nAdm.getEmailAdm(), nAdm.getSenhaAdm(), mapRolesToAuthorities(nAdm.getRole()));
+        return new org.springframework.security.core.userdetails.User(org.getEmailOrg(), org.getSenhaOrg(), mapRolesToAuthorities(org.getRole()));
     }
 
     private Collection< ? extends GrantedAuthority> mapRolesToAuthorities(Collection<RoleModel> roles) {

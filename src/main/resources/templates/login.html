@@ -17,13 +17,13 @@
     <div th:replace="fragments/header"></div>
 
 
-    <form action="#" th:method="@{/login}" method="POST">
+    <form th:action="@{/login}" method="POST">
 
         <label for="email">E-mail</label>
-        <input type="text" id="email" name="email">
+        <input type="text" id="email" name="email" placeholder="Digite seu e-mail">
 
-        <label for="senha">Senha</label>
-        <input type="text" id="senha" name="senha">
+        <label for="password">Senha</label>
+        <input type="text" id="password" name="password" placeholder="Digite sua senha">
 
         <button type="submit" style="cursor: pointer;" class="button" value="FazerLogin">Fazer Login</button>
 

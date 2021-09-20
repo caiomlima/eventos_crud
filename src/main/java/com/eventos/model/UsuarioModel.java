@@ -3,6 +3,9 @@ package com.eventos.model;
 import org.springframework.boot.convert.DataSizeUnit;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 
 @Entity
@@ -13,13 +16,13 @@ public class UsuarioModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idUsr;
 
-    @Column(nullable = false, length = 32, unique = true)
+    @NotNull @NotEmpty @Size(min = 1, max = 100, message = "Digite o nome de sua empresa no tamanho maximo de 100 caracteres")
     private String nomeUsr;
 
-    @Column(nullable = false, unique = true)
+    @NotNull @NotEmpty @Column(unique = true)
     private String emailUsr;
 
-    @Column(nullable = false)
+    @NotNull @NotEmpty @Size(min = 8, max = 64, message = "Digite uma senha que contenha entre 8 e 64 caracteres")
     private String senhaUsr;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -37,7 +40,7 @@ public class UsuarioModel {
     }
 
     public UsuarioModel(String nomeUsr, String emailUsr, String senhaUsr) {
-//        super();
+        super();
         this.nomeUsr = nomeUsr;
         this.emailUsr = emailUsr;
         this.senhaUsr = senhaUsr;
@@ -65,14 +68,14 @@ public class UsuarioModel {
     public Collection<RoleModel> getRole() { return role; }
     public void setRole(Collection<RoleModel> role) { this.role = role; }
 
-//    @Override
-//    public String toString() {
-//        return "Usuario{" +
-//                "id=" + idUsr +
-//                ", nomeUsr='" + nomeUsr + '\'' +
-//                ", emailUsr='" + emailUsr + '\'' +
-//                ", senhaUsr='" + "*********" + '\'' +
-//                ", role=" + role +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "idUsr=" + idUsr +
+                ", nomeUsr='" + nomeUsr + '\'' +
+                ", emailUsr='" + emailUsr + '\'' +
+                ", senhaUsr='" + "*********" + '\'' +
+                ", role=" + role +
+                '}';
+    }
 }

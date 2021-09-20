@@ -1,22 +1,25 @@
 package com.eventos.model;
 
+import org.hibernate.type.DateType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
 @Table(name = "eventos")
 public class EventoModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private int idEvt;
 
-    @Column(nullable = false, length = 200)
+    @NotEmpty @Size(min = 5, max = 150, message = "Digite um nome que tenha entre 5 e 150 caracteres") @Column(nullable = false)
     private String nomeEvt;
 
-    @Column(nullable = false, length = 1000)
+    @NotEmpty @Size(min = 10, max = 1000, message = "Digite uma descrição para o evento, que tenha entre 10 e 1000 caracteres") @Column(nullable = false)
     private String descEvt;
 
     // Colocar o seguinte comando na database evthj:
@@ -24,23 +27,23 @@ public class EventoModel {
     @Column(nullable = false)
     private Date dataEvt;
 
-    @Column(nullable = false)
+    @NotEmpty @Column(nullable = false)
     private String qtdPessEvt;
 
-    @Column(nullable = false)
+    @NotEmpty @Column(nullable = false)
     private String regiaoEvt;
 
-    @Column(nullable = false, length = 250)
+    @NotEmpty @Size(min = 10, max = 250, message = "Digite o endereço do evento, que tenha entre 10 e 250 caracteres") @Column(nullable = false)
     private String endrcEvt;
 
     @Column(nullable = false)
-    private String admEvt;
+    private String orgEvt;
 
     public EventoModel() {
         super();
     }
 
-    public EventoModel(String nomeEvt, String descEvt, Date dataEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt, String admEvt) {
+    public EventoModel(String nomeEvt, String descEvt, Date dataEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt, String orgEvt) {
         super();
         this.nomeEvt = nomeEvt;
         this.descEvt = descEvt;
@@ -48,7 +51,7 @@ public class EventoModel {
         this.qtdPessEvt = qtdPessEvt;
         this.regiaoEvt = regiaoEvt;
         this.endrcEvt = endrcEvt;
-        this.admEvt = admEvt;
+        this.orgEvt = orgEvt;
     }
 
     public int getIdEvt() { return idEvt; }
@@ -72,6 +75,6 @@ public class EventoModel {
     public String getEndrcEvt() { return endrcEvt; }
     public void setEndrcEvt(String endrcEvt) { this.endrcEvt = endrcEvt; }
 
-    public String getAdmEvt() { return admEvt; }
-    public void setAdmEvt(String admEvt) { this.admEvt = admEvt; }
+    public String getOrgEvt() { return orgEvt; }
+    public void setOrgEvt(String orgEvt) { this.orgEvt = orgEvt; }
 }

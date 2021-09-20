@@ -1,24 +1,20 @@
 package com.eventos.security;
 
-import com.eventos.service.IAdmService;
+import com.eventos.service.IOrgService;
 import com.eventos.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 
 import java.util.Arrays;
 
@@ -30,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private IUsuarioService user_serv;
 
     @Autowired
-    private IAdmService adm_serv;
+    private IOrgService org_serv;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -40,26 +36,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/registration**", "/js/**", "/css/**", "/img/**", "/webjars/**").permitAll()
-                .antMatchers("/", "/login", "/cadastre-se", "/cadastre-se/adm", "/cadastre-se/usuario", "/concluir-cadastro/adm", "/concluir-cadastro/usuario", "/eventos", "/sobre").permitAll()
-//                .antMatchers("/novo-evento", "/salvar-evento", "/excluir-evento/{idEvt}", "/editar-evento/{idEvt}").hasAuthority("USER").anyRequest()
-                .antMatchers("/meus-eventos","/novo-evento", "/salvar-evento", "/excluir-evento/{idEvt}", "/editar-evento/{idEvt}").hasAuthority("ADM").anyRequest()
-                .authenticated().and().csrf().disable().formLogin()
+                .antMatchers("/", "/login", "/cadastre-se", "/cadastre-se/org", "/cadastre-se/usuario", "/concluir-cadastro/org", "/concluir-cadastro/usuario", "/eventos", "/sobre").permitAll()
+//                .antMatchers("").hasAuthority("USER").anyRequest()
+                .antMatchers("/meus-eventos","/novo-evento", "/salvar-evento", "/excluir-evento/{idEvt}", "/editar-evento/{idEvt}").hasAuthority("ORG").anyRequest().authenticated()
+                .and()
+                .csrf().disable()
+                .formLogin()
                 .loginPage("/login")
+                .permitAll()
                 .defaultSuccessUrl("/", true)
                 .usernameParameter("email")
-                .passwordParameter("senha")
-                .and()
-                .logout()
+                .passwordParameter("password")
+                .and().logout()
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
-                .deleteCookies("JSESSIONID")
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login").and().exceptionHandling()
-                .accessDeniedPage("/access-denied");
+                .logoutSuccessUrl("/login");
+//                .and().exceptionHandling().accessDeniedPage("/access-denied");
     }
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
+        BCryptPasswordEncoder bPasswordEncoder = new BCryptPasswordEncoder();
         return new BCryptPasswordEncoder();
     }
 
@@ -67,7 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setUserDetailsService(user_serv);
-        auth.setUserDetailsService(adm_serv);
+        auth.setUserDetailsService(org_serv);
         auth.setPasswordEncoder(passwordEncoder());
         return auth;
     }
@@ -78,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-        // CORS Config
+    // CORS Config
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();

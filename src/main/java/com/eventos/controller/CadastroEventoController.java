@@ -15,6 +15,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -34,12 +35,13 @@ public class CadastroEventoController {
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
 
-    @RequestMapping(value = "/novo-evento", method = RequestMethod.GET)
+    @GetMapping("/novo-evento")
     public String criarEvtPg(Model model) {
         EventoModel nEvt = new EventoModel();
         model.addAttribute("evento", nEvt);
         return "cadastro_evento";
     }
+
 
     // Antigo metodo de criar eventos (qq um sem auth pode fazer um evento)
 //    @RequestMapping(value = "/salvar-evento", method = RequestMethod.POST)
@@ -48,7 +50,8 @@ public class CadastroEventoController {
 //        return "redirect:/eventos";
 //    }
 
-//     Função para pegar o nome do adm que fez o evento
+
+//     Função para pegar o nome do organizador que fez o evento
     private String getUsernameLogged(Model model) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof UserDetails) {
@@ -57,13 +60,12 @@ public class CadastroEventoController {
         return principal.toString();
     }
 
-//     Função que faz o novo evento e associa ao adm que fez ele
-    @RequestMapping(value = "/salvar-evento", method = RequestMethod.POST)
-    public String addEvento(Model model, EventoModel evt, BindingResult result) {
+    @PostMapping("/salvar-evento")
+    public String addEvento(@ModelAttribute("evento") @Valid EventoModel evt, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "cadastro_evento";
         }
-        evt.setAdmEvt(getUsernameLogged(model));
+        evt.setOrgEvt(getUsernameLogged(model));
         evt_serv.saveEvento(evt);
         return "redirect:/meus-eventos";
     }

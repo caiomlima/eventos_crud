@@ -26,11 +26,11 @@ public class RoleModel {
     public String getNomeRole() { return nomeRole; }
     public void setNomeRole(String nomeRole) { this.nomeRole = nomeRole; }
 
-//    @Override
-//    public String toString() {
-//        return "Role{" +
-//                "idRole=" + idRole +
-//                ", nomeRole='" + nomeRole + '\'' +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Role{" +
+                "idRole=" + idRole +
+                ", nomeRole='" + nomeRole + '\'' +
+                '}';
+    }
 }

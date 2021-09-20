@@ -23,7 +23,7 @@ public class MeusEventosController {
     @RequestMapping(value = "/meus-eventos", method = RequestMethod.GET)
     public String meusEventosPg(Model model) {
         String name = getUsernameLogged(model);
-        model.addAttribute("evt", evt_serv.getEventosByAdmName(name)) ;
+        model.addAttribute("evt", evt_serv.getEventosByOrgName(name)) ;
         return "meus_eventos";
     }
 

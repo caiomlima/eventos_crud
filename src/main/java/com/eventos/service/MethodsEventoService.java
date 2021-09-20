@@ -22,10 +22,10 @@ public class MethodsEventoService implements IEventoService{
         return evt_repo.findAll();
     }
 
-    // Mostra apenas eventos feitos por "x" adm
+    // Mostra apenas eventos feitos por "x" organizador
     @Override
-    public List<EventoModel> getEventosByAdmName(String nomeAdm) {
-        return evt_repo.findByAdmEvt(nomeAdm);
+    public List<EventoModel> getEventosByOrgName(String nomeOrg) {
+        return evt_repo.findByOrgEvt(nomeOrg);
     }
 
     // Mostra um evento por "x" id
@@ -43,8 +43,8 @@ public class MethodsEventoService implements IEventoService{
     }
 
     @Override
-    public void addEvento(String nomeEvt, String descEvt, Date dataEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt, String admEvt) {
-        evt_repo.save(new EventoModel(nomeEvt, descEvt, dataEvt, qtdPessEvt, regiaoEvt, endrcEvt, admEvt));
+    public void addEvento(String nomeEvt, String descEvt, Date dataEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt, String orgEvt) {
+        evt_repo.save(new EventoModel(nomeEvt, descEvt, dataEvt, qtdPessEvt, regiaoEvt, endrcEvt, orgEvt));
     }
 
     @Override

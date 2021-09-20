@@ -6,7 +6,8 @@
     background-color: #282d32;
     color: white;
     float: center;
-    padding: 14px;
+    padding-top: 9px;
+    padding-bottom: 7px;
 }
 
 .infos-div {

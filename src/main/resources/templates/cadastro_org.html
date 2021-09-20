@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se - Eventos Hoje</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="https://kit.fontawesome.com/cdf8c5431e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div th:replace="fragments/header"></div>
+
+
+    <form action="#" th:action="@{/concluir-cadastro/org}" th:object="${org}" method="POST">
+
+        <label for="nomeOrg">Nome de Org (Empresa organizadora de eventos)</label>
+        <input type="text" id="nomeOrg" th:field="*{nomeOrg}" name="nomeOrg">
+        <p th:if="${#fields.hasErrors('nomeOrg')}" th:errors="*{nomeOrg}">Erro nome</p>
+        <br><br>
+
+        <label for="emailOrg">Email</label>
+        <input type="text" id="emailOrg" th:field="*{emailOrg}" name="emailOrg">
+        <p th:if="${#fields.hasErrors('emailOrg')}" th:errors="*{emailOrg}">Erro email</p>
+        <br><br>
+
+        <label for="senhaOrg">Senha</label>
+        <input type="text" id="senhaOrg" th:field="*{senhaOrg}" name="senhaOrg">
+        <p th:if="${#fields.hasErrors('senhaOrg')}" th:errors="*{senhaOrg}">Erro senha</p>
+        <br><br>
+
+        <label for="descOrg">Desc. da empresa</label>
+        <input type="text" id="descOrg" th:field="*{descOrg}" name="descOrg">
+        <p th:if="${#fields.hasErrors('descOrg')}" th:errors="*{descOrg}">Erro desc</p>
+        <br><br>
+
+        <button type="submit" style="cursor: pointer;" class="button" value="CadastrarNovoOrg">Concluir cadastro</button>
+    </form>
+
+
+    <div th:replace="fragments/footer"></div>
+
+</body>
+
+</html>

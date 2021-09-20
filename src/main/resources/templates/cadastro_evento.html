@@ -19,17 +19,23 @@
 
     <h1>Novo Evento</h1>
 
-    <form action="#" th:action="@{/salvar-evento}" th:object="${evento}" method="POST">
+    <form th:action="@{/salvar-evento}" th:object="${evento}" method="post">
+
         <label for="nomeEvt">Nome do evento</label>
-        <input type="text" id="nomeEvt" th:field="*{nomeEvt}" name="nomeEvt"><br><br>
+        <input type="text" id="nomeEvt" th:field="*{nomeEvt}" name="nomeEvt">
+        <p th:if="${#fields.hasErrors('nomeEvt')}" th:errors="*{nomeEvt}">Erro nome evento</p>
+        <br><br>
+
 
         <label for="descEvt">Descrição do evento</label>
-        <textarea type="text" id="descEvt" th:field="*{descEvt}" name="descEvt" rows="10" cols="80">
-            
-        </textarea><br><br>
+        <textarea type="text" id="descEvt" th:field="*{descEvt}" name="descEvt" rows="10" cols="80"></textarea>
+        <p th:if="${#fields.hasErrors('descEvt')}" th:errors="*{descEvt}">Erro desc evento</p>
+        <br><br>
 
         <label for="dataEvt">Data do evento</label>
-        <input type="text" id="dataEvt" th:field="*{dataEvt}" name="dataEvt" inputmode="numeric" placeholder="__/__/____"><br><br>
+        <input type="text" id="dataEvt" th:field="*{dataEvt}" name="dataEvt" inputmode="numeric" placeholder="__/__/____">
+        <p th:if="${#fields.hasErrors('dataEvt')}" th:errors="*{dataEvt}">Erro data evento</p>
+        <br><br>
 
         <label for="qtdPessEvt">Quantidade de pessoas do evento</label>
         <select id="qtdPessEvt" th:field="*{qtdPessEvt}" name="qtdPessEvt">
@@ -39,7 +45,9 @@
             <option value="Até 250 pessoas">Até 250 pessoas</option>
             <option value="Até 500 pessoas">Até 500 pessoas</option>
             <option value="Mais de 500 pessoas">Mais de 500 pessoas</option>
-        </select><br><br>
+        </select>
+        <p th:if="${#fields.hasErrors('qtdPessEvt')}" th:errors="*{qtdPessEvt}">Erro qtdp evento</p>
+        <br><br>
 
         <label for="regiaoEvt">Região do evento</label>
         <select id="regiaoEvt" th:field="*{regiaoEvt}" name="regiaoEvt">
@@ -48,18 +56,17 @@
             <option value="Zona Leste">Zona Leste</option>
             <option value="Zona Oeste">Zona Oeste</option>
             <option value="Centro">Centro</option>
-        </select><br><br>
+        </select>
+        <p th:if="${#fields.hasErrors('regiaoEvt')}" th:errors="*{regiaoEvt}">Erro regiao evento</p>
+        <br><br>
 
         <label for="endrcEvt">Endereço / Local do evento</label>
-        <input type="text" id="endrcEvt" th:field="*{endrcEvt}" name="endrcEvt"><br><br>
-
-        <h3>
-            Colocar foto do evento com blob mais tarde
-        </h3>
-        <br>
-        <br>
+        <input type="text" id="endrcEvt" th:field="*{endrcEvt}" name="endrcEvt">
+        <p th:if="${#fields.hasErrors('endrcEvt')}" th:errors="*{endrcEvt}">Erro endrc evento</p>
+        <br><br>
 
         <button type="submit" style="cursor: pointer;" class="button" value="CriarEvt">Criar Evento</button>
+
     </form>
 
 
