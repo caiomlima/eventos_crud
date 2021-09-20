@@ -21,7 +21,7 @@ import java.util.Date;
 
 
 @Controller
-public class CadastroEventoController {
+public class NovoEventoController {
 
     @Autowired
     private EventoRepository evt_repo;
@@ -36,22 +36,13 @@ public class CadastroEventoController {
     }
 
     @GetMapping("/novo-evento")
-    public String criarEvtPg(Model model) {
+    public String createEventPg(Model model) {
         EventoModel nEvt = new EventoModel();
         model.addAttribute("evento", nEvt);
-        return "cadastro_evento";
+        return "form_criar_evento";
     }
 
-
-    // Antigo metodo de criar eventos (qq um sem auth pode fazer um evento)
-//    @RequestMapping(value = "/salvar-evento", method = RequestMethod.POST)
-//    public String addEvento(@ModelAttribute("evento") EventoModel nevt) {
-//        evt_serv.saveEvento(nevt);
-//        return "redirect:/eventos";
-//    }
-
-
-//     Função para pegar o nome do organizador que fez o evento
+    // Função para pegar o nome do organizador que fez o evento
     private String getUsernameLogged(Model model) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof UserDetails) {
@@ -61,11 +52,11 @@ public class CadastroEventoController {
     }
 
     @PostMapping("/salvar-evento")
-    public String addEvento(@ModelAttribute("evento") @Valid EventoModel evt, BindingResult result, Model model) {
+    public String addNewEvento(@ModelAttribute("evento") @Valid EventoModel evt, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "cadastro_evento";
+            return "form_criar_evento";
         }
-        evt.setOrgEvt(getUsernameLogged(model));
+        evt.setUsrEvt(getUsernameLogged(model));
         evt_serv.saveEvento(evt);
         return "redirect:/meus-eventos";
     }

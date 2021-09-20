@@ -1,12 +1,12 @@
 package com.eventos.repository;
 
-import com.eventos.model.OrgModel;
+import com.eventos.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OrgRepository extends JpaRepository<OrgModel, Integer> {
+public interface UserRepository extends JpaRepository<UserModel, Integer> {
     @Autowired
-    OrgModel findByEmailOrg(String emailOrg);
+    UserModel findByEmailUsr(String emailUsr);
 }

@@ -1,17 +1,26 @@
-Este projeto básico foi feito com o intuito de aprender mais sobre CRUD, HTML, CSS e javaScript e melhorar minhas habilidades nas tecnologias: Java, Spring Boot e Security, Thymeleaf (JSP), MySQL, JPA
+Este projeto foi feito com o intuito de aprendizado, sem qualquer forma de monetização ou divulgação
+
+Tecnologias usadas:
+
+- Java (V 11)
+- HTML, CSS e JS
+- Spring Boot e Spring Security
+- Thymeleaf (Substituindo o JSP)
+- JPA (Hibernate)
+- MySQL
 
 No momento, o site contém:
 
-- Conexão com o MySQL, Thymeleaf (JSP p/ input e output de dados), JPA (CRUD)
-
-
-- Criação, exibição, edição e exclusão dos eventos (CRUD completo dos eventos)
+- CRUD dos eventos
   
 
-- Criação de usuário com role "USER" e adm com role "ADM" - relação ManyToMany no MySQL entre as tabelas "usuarios" / "adms, "roles" e "relacao_users_roles" / "relacao_adms_roles"
+- Criação de usuário com role "USER" (com relação ManyToMany no MySQL para gerar as roles)
   
 
-- Login (autenticação) dos usuários e ADMs para controle de acesso a certos conteúdos (Controle de autoridade) com roles ("USER" e "ADM")
+- Login (autenticação) dos usuários para controle de acesso a certos conteúdos (Controle de autoridade)
   
 
-- Relação do evento ao email do ADM que criou o evento, possibilitando a limitação de update e delete apenas ao ADM que criou esse evento caso ele esteja logado
+- Relação do evento ao email do User que criou o evento, tornando update e delete apenas a quem criou o evento (precisa estar logado)
+
+
+- Validação nos forms de criação de eventos e usuários

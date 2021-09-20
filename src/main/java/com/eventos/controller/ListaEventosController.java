@@ -15,14 +15,11 @@ import java.util.Optional;
 @Controller
 public class ListaEventosController {
 
-//    private EventoModel evt_model;
-//    private EventoRepository evt_repo;
-
     @Autowired
     private IEventoService evt_serv;
 
     @RequestMapping("/eventos")
-    public String eventosPg(Model model) {
+    public String eventsPg(Model model) {
         model.addAttribute("evt", evt_serv.getEventos());
         return "lista_eventos";
     }

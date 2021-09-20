@@ -21,35 +21,31 @@ public class MeusEventosController {
     IEventoService evt_serv;
 
     @RequestMapping(value = "/meus-eventos", method = RequestMethod.GET)
-    public String meusEventosPg(Model model) {
+    public String myEventsPg(Model model) {
         String name = getUsernameLogged(model);
-        model.addAttribute("evt", evt_serv.getEventosByOrgName(name)) ;
+        model.addAttribute("evt", evt_serv.getEventosByUserName(name)) ;
         return "meus_eventos";
     }
 
     private String getUsernameLogged(Model model) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
         if (principal instanceof UserDetails) {
             return ((UserDetails) principal).getUsername();
         }
-
         return principal.toString();
     }
 
     @GetMapping("/excluir-evento/{idEvt}")
-    public String deleteEvento(@PathVariable(value = "idEvt") int idEvt) {
+    public String deleteEvent(@PathVariable(value = "idEvt") int idEvt) {
         this.evt_serv.deleteEvento(idEvt);
         return "redirect:/eventos";
     }
 
     @RequestMapping(value = "/editar-evento/{idEvt}", method = RequestMethod.GET)
-    public String updateEvento(@PathVariable(value = "idEvt") int idEvt, Model model) {
+    public String updateEvent(@PathVariable(value = "idEvt") int idEvt, Model model) {
         Optional<EventoModel> evento = evt_serv.getEventoById(idEvt);
-
         model.addAttribute("evento", evento);
-
-        return "update_evento";
+        return "form_update_evento";
     }
 
 }

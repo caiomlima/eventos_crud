@@ -28,10 +28,15 @@
             <tr>
                 <th>Nome do evento</th>
                 <th>Descrição do evento</th>
-                <th>Data do evento</th>
-                <th>Endereço do evento</th>
-                <th>Região do evento</th>
                 <th>Quantidade de pessoas no evento</th>
+                <th>Região do evento</th>
+                <th>Local do evento</th>
+                <th>Núm. end. do evento</th>
+                <th>CEP do evento</th>
+                <th>Complemento do evento</th>
+                <th>Data de início do evento</th>
+                <th>Data de encerramento do evento</th>
+                <th>Responsavel do evento</th>
             </tr>
         </thead>
 
@@ -39,10 +44,16 @@
             <tr th:each="evento : ${evt}">
                 <td th:text="${evento.nomeEvt}"></td>
                 <td th:text="${evento.descEvt}"></td>
-                <td th:text="${evento.dataEvt}"></td>
-                <td th:text="${evento.endrcEvt}"></td>
-                <td th:text="${evento.regiaoEvt}"></td>
                 <td th:text="${evento.qtdPessEvt}"></td>
+                <td th:text="${evento.regiaoEvt}"></td>
+                <td th:text="${evento.localEvt}"></td>
+                <td th:text="${evento.numEndEvt}"></td>
+                <td th:text="${evento.cepEvt}"></td>
+                <td th:text="${evento.complEvt}"></td>
+                <td th:text="${evento.dataInicioEvt}"></td>
+                <td th:text="${evento.dataFimEvt}"></td>
+                <td th:text="${evento.orgEvt}"></td>
+                <td th:text="${evento.descOrgEvt}"></td>
                 <td>
                     <a type="button" class="btn-up" th:href="@{/editar-evento/{idEvt}(idEvt=${evento.idEvt})}">Update</a>
                     <a type="button" class="btn-del" th:href="@{/excluir-evento/{idEvt}(idEvt=${evento.idEvt})}">Excluir</a>

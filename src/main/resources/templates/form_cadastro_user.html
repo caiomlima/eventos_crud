@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se - Eventos Hoje</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="https://kit.fontawesome.com/cdf8c5431e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div th:replace="fragments/header"></div>
+
+
+    <form action="#" th:action="@{/concluir-cadastro}" th:object="${usr}" method="POST">
+
+        <label for="nomeUsr">Nome</label>
+        <input type="text" id="nomeUsr" th:field="*{nomeUsr}" name="nomeUsr">
+        <p th:if="${#fields.hasErrors('nomeUsr')}" th:errors="*{nomeUsr}">Erro nome</p>
+        <br><br>
+
+        <label for="sobrenomeUsr">Sobrenome</label>
+        <input type="text" id="sobrenomeUsr" th:field="*{sobrenomeUsr}" name="sobrenomeUsr">
+        <p th:if="${#fields.hasErrors('sobrenomeUsr')}" th:errors="*{sobrenomeUsr}">Erro sobrenome</p>
+        <br><br>
+
+        <label for="emailUsr">Email</label>
+        <input type="text" id="emailUsr" th:field="*{emailUsr}" name="emailUsr">
+        <p th:if="${#fields.hasErrors('emailUsr')}" th:errors="*{emailUsr}">Erro email</p>
+        <br><br>
+
+        <label for="senhaUsr">Senha</label>
+        <input type="text" id="senhaUsr" th:field="*{senhaUsr}" name="senhaUsr">
+        <p th:if="${#fields.hasErrors('senhaUsr')}" th:errors="*{senhaUsr}">Erro senha</p>
+        <br><br>
+
+
+        <button type="submit" style="cursor: pointer;" class="button" value="CadastrarNovoUsr">Concluir cadastro</button>
+    </form>
+
+
+    <div th:replace="fragments/footer"></div>
+
+</body>
+
+</html>

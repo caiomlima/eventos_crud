@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Evento - Eventos Hoje</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="https://kit.fontawesome.com/cdf8c5431e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div th:replace="fragments/header"></div>
+
+
+    <h1>Editar Evento</h1>
+
+    <form action="#" th:action="@{/salvar-evento}" th:object="${evento}" method="POST">
+        <!-- ID do evento -->
+        <input type="hidden" th:field="*{idEvt}" />
+
+        <!-- Nome do evento -->
+        <label for="nomeEvt">Nome do evento</label>
+        <input type="text" id="nomeEvt" th:field="*{nomeEvt}" name="nomeEvt">
+        <p th:if="${#fields.hasErrors('nomeEvt')}" th:errors="*{nomeEvt}">Erro nome evento</p>
+        <br><br>
+
+        <!-- Decrição do evento -->
+        <label for="descEvt">Descrição do evento</label>
+        <textarea type="text" id="descEvt" th:field="*{descEvt}" name="descEvt" rows="10" cols="80"></textarea>
+        <p th:if="${#fields.hasErrors('descEvt')}" th:errors="*{descEvt}">Erro desc evento</p>
+        <br><br>
+
+        <!-- Quantidade de pessoas o evento -->
+        <label for="qtdPessEvt">Quantidade de pessoas do evento</label>
+        <select id="qtdPessEvt" th:field="*{qtdPessEvt}" name="qtdPessEvt">
+            <option value="Até 10 pessoas">Até 10 pessoas</option>
+            <option value="Até 50 pessoas">Até 50 pessoas</option>
+            <option value="Até 100 pessoas">Até 100 pessoas</option>
+            <option value="Até 250 pessoas">Até 250 pessoas</option>
+            <option value="Até 500 pessoas">Até 500 pessoas</option>
+            <option value="Mais de 500 pessoas">Mais de 500 pessoas</option>
+        </select>
+        <p th:if="${#fields.hasErrors('qtdPessEvt')}" th:errors="*{qtdPessEvt}">Erro qtdp evento</p>
+        <br><br>
+
+        <!-- Região do evento -->
+        <label for="regiaoEvt">Região do evento</label>
+        <select id="regiaoEvt" th:field="*{regiaoEvt}" name="regiaoEvt">
+            <option value="Zona Norte">Zona Norte</option>
+            <option value="Zona Sul">Zona Sul</option>
+            <option value="Zona Leste">Zona Leste</option>
+            <option value="Zona Oeste">Zona Oeste</option>
+            <option value="Centro">Centro</option>
+        </select>
+        <p th:if="${#fields.hasErrors('regiaoEvt')}" th:errors="*{regiaoEvt}">Erro regiao evento</p>
+        <br><br>
+
+        <!-- Endereço do evento -->
+        <label for="localEvt">Endereço / Local do evento</label>
+        <input type="text" id="localEvt" th:field="*{localEvt}" name="localEvt">
+        <p th:if="${#fields.hasErrors('localEvt')}" th:errors="*{localEvt}">Erro local evento</p>
+        <br><br>
+
+        <!-- Num do endereço -->
+        <label for="numEndEvt">Número do endereço do evento</label>
+        <input type="text" id="numEndEvt" th:field="*{numEndEvt}" name="numEndEvt" inputmode="numeric">
+        <p th:if="${#fields.hasErrors('numEndEvt')}" th:errors="*{numEndEvt}">Erro numEnd evento</p>
+        <br><br>
+
+        <!-- CEP do endereço -->
+        <label for="cepEvt">CEP do evento</label>
+        <input type="text" id="cepEvt" th:field="*{cepEvt}" name="cepEvt" inputmode="numeric">
+        <p th:if="${#fields.hasErrors('cepEvt')}" th:errors="*{cepEvt}">Erro cep evento</p>
+        <br><br>
+
+        <!-- Complemento do endereço -->
+        <label for="complEvt">Complemento do endereço do evento</label>
+        <input type="text" id="complEvt" th:field="*{complEvt}" name="complEvt">
+        <p th:if="${#fields.hasErrors('complEvt')}" th:errors="*{complEvt}">Erro compl evento</p>
+        <br><br>
+
+        <!-- Data de início do evento -->
+        <label for="dataInicioEvt">Data de início do evento</label>
+        <input type="text" id="dataInicioEvt" th:field="*{dataInicioEvt}" name="dataInicioEvt" inputmode="numeric" placeholder="__/__/____">
+        <p th:if="${#fields.hasErrors('dataInicioEvt')}" th:errors="*{dataInicioEvt}">Erro data inicial evento</p>
+        <br><br>
+
+        <!-- Data de encerramento do evento -->
+        <label for="dataFimEvt">Data de encerramento do evento</label>
+        <input type="text" id="dataFimEvt" th:field="*{dataFimEvt}" name="dataFimEvt" inputmode="numeric" placeholder="__/__/____">
+        <p th:if="${#fields.hasErrors('dataFimEvt')}" th:errors="*{dataFimEvt}">Erro data enc evento</p>
+        <br><br>
+
+        <!-- Nome do organizador do evento -->
+        <label for="orgEvt">Nome do organizador do evento</label>
+        <input type="text" id="orgEvt" th:field="*{orgEvt}" name="orgEvt">
+        <p th:if="${#fields.hasErrors('orgEvt')}" th:errors="*{orgEvt}">Erro nome org evento</p>
+        <br><br>
+
+        <!-- Descrição do organizador do evento -->
+        <label for="descOrgEvt">Descrição do organizador do evento</label>
+        <textarea type="text" id="descOrgEvt" th:field="*{descOrgEvt}" name="descOrgEvt"></textarea>
+        <p th:if="${#fields.hasErrors('descOrgEvt')}" th:errors="*{descOrgEvt}">Erro desc org evento</p>
+        <br><br>
+
+        <!-- Submit dos dados do form -->
+        <button type="submit" style="cursor: pointer;" class="button">Confirmar</button>
+    </form>
+
+
+    <div th:replace="fragments/footer"></div>
+
+</body>
+
+</html>

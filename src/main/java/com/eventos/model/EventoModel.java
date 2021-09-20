@@ -5,7 +5,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
@@ -22,10 +21,11 @@ public class EventoModel {
     @NotEmpty @Size(min = 10, max = 1000, message = "Digite uma descrição para o evento, que tenha entre 10 e 1000 caracteres") @Column(nullable = false)
     private String descEvt;
 
-    // Colocar o seguinte comando na database evthj:
-    // ALTER TABLE `eventos` CHANGE `data_evento` `data_evento` DATE;
-    @Column(nullable = false)
-    private Date dataEvt;
+//    @NotEmpty @Column(nullable = false)
+//    private String assuntoEvt;
+//
+//    @NotEmpty @Column(nullable = false)
+//    private String categoriaEvt;
 
     @NotEmpty @Column(nullable = false)
     private String qtdPessEvt;
@@ -34,24 +34,55 @@ public class EventoModel {
     private String regiaoEvt;
 
     @NotEmpty @Size(min = 10, max = 250, message = "Digite o endereço do evento, que tenha entre 10 e 250 caracteres") @Column(nullable = false)
-    private String endrcEvt;
+    private String localEvt;
+
+    @NotEmpty @Column(nullable = false) @Size(min = 1, message = "Digite apenas os números do endereço")
+    private String numEndEvt;
+
+    @NotEmpty @Column(nullable = false) @Size(min = 8, max = 8, message = "Digite apenas os números do cep")
+    private String cepEvt;
+
+    @NotEmpty @Size(min = 10, max = 250, message = "Digite o complemento do endereço do evento") @Column(nullable = false)
+    private String complEvt;
+
+    // Colocar o seguinte comando na database evthj:
+    // ALTER TABLE `eventos` CHANGE `data_evento` `data_evento` DATE;
+    @Column(nullable = false)
+    private Date dataInicioEvt;
+    @Column(nullable = false)
+    private Date dataFimEvt;
+
+    @NotEmpty @Size(min = 5, max = 100, message = "Digite o nome da empresa / pessoa que está organizando o evento") @Column(nullable = false)
+    private String orgEvt;
+
+    @NotEmpty @Size(min = 5, max = 250, message = "Digite a desc. da empresa / pessoa que está organizando o evento") @Column(nullable = false)
+    private String descOrgEvt;
 
     @Column(nullable = false)
-    private String orgEvt;
+    private String usrEvt;
+
 
     public EventoModel() {
         super();
     }
 
-    public EventoModel(String nomeEvt, String descEvt, Date dataEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt, String orgEvt) {
+    public EventoModel( String nomeEvt, String descEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt, String localEvt, String numEndEvt, String cepEvt, String complEvt, Date dataInicioEvt, Date dataFimEvt, String orgEvt, String descOrgEvt, String usrEvt) {
         super();
         this.nomeEvt = nomeEvt;
         this.descEvt = descEvt;
-        this.dataEvt = dataEvt;
+//        this.assuntoEvt = assuntoEvt;
+//        this.categoriaEvt = categoriaEvt;
         this.qtdPessEvt = qtdPessEvt;
         this.regiaoEvt = regiaoEvt;
-        this.endrcEvt = endrcEvt;
+        this.localEvt = localEvt;
+        this.numEndEvt = numEndEvt;
+        this.cepEvt = cepEvt;
+        this.complEvt = complEvt;
+        this.dataInicioEvt = dataInicioEvt;
+        this.dataFimEvt = dataFimEvt;
         this.orgEvt = orgEvt;
+        this.descOrgEvt = descOrgEvt;
+        this.usrEvt = usrEvt;
     }
 
     public int getIdEvt() { return idEvt; }
@@ -63,18 +94,36 @@ public class EventoModel {
     public String getDescEvt() { return descEvt; }
     public void setDescEvt(String descEvt) { this.descEvt = descEvt; }
 
-    public Date getDataEvt() { return dataEvt; }
-    public void setDataEvt(Date dataEvt) { this.dataEvt = dataEvt; }
-
     public String getQtdPessEvt() { return qtdPessEvt; }
     public void setQtdPessEvt(String qtdPessEvt) { this.qtdPessEvt = qtdPessEvt; }
 
     public String getRegiaoEvt() { return regiaoEvt; }
     public void setRegiaoEvt(String regiaoEvt) { this.regiaoEvt = regiaoEvt; }
 
-    public String getEndrcEvt() { return endrcEvt; }
-    public void setEndrcEvt(String endrcEvt) { this.endrcEvt = endrcEvt; }
+    public String getLocalEvt() { return localEvt; }
+    public void setLocalEvt(String localEvt) { this.localEvt = localEvt; }
+
+    public String getNumEndEvt() { return numEndEvt; }
+    public void setNumEndEvt(String numEndEvt) { this.numEndEvt = numEndEvt; }
+
+    public String getCepEvt() { return cepEvt; }
+    public void setCepEvt(String cepEvt) { this.cepEvt = cepEvt; }
+
+    public String getComplEvt() { return complEvt; }
+    public void setComplEvt(String complEvt) { this.complEvt = complEvt; }
+
+    public Date getDataInicioEvt() { return dataInicioEvt; }
+    public void setDataInicioEvt(Date dataInicioEvt) { this.dataInicioEvt = dataInicioEvt; }
+
+    public Date getDataFimEvt() { return dataFimEvt; }
+    public void setDataFimEvt(Date dataFimEvt) { this.dataFimEvt = dataFimEvt; }
 
     public String getOrgEvt() { return orgEvt; }
     public void setOrgEvt(String orgEvt) { this.orgEvt = orgEvt; }
+
+    public String getDescOrgEvt() { return descOrgEvt; }
+    public void setDescOrgEvt(String descOrgEvt) { this.descOrgEvt = descOrgEvt; }
+
+    public String getUsrEvt() { return usrEvt; }
+    public void setUsrEvt(String usrEvt) { this.usrEvt = usrEvt; }
 }
