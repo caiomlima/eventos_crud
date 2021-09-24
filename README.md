@@ -1,5 +1,13 @@
 Este projeto foi feito com o intuito de aprendizado, sem qualquer forma de monetização ou divulgação
 
+Programas usados:
+
+
+- IntelliJ IDEA Community
+- Visual Studio Code
+- MySQL Workbench
+- Adobe XD
+
 Tecnologias usadas:
 
 - Java (V 11)
@@ -9,18 +17,18 @@ Tecnologias usadas:
 - JPA (Hibernate)
 - MySQL
 
-No momento, o site contém:
+Recusrsos do site:
 
 - CRUD dos eventos
   
 
-- Criação de usuário com role "USER" (com relação ManyToMany no MySQL para gerar as roles)
+- Criação de usuário com role "USER" (com relação ManyToMany no MySQL para gerar a role)
   
 
 - Login (autenticação) dos usuários para controle de acesso a certos conteúdos (Controle de autoridade)
   
 
-- Relação do evento ao email do User que criou o evento, tornando update e delete apenas a quem criou o evento (precisa estar logado)
+- Relação do evento ao email do User que criou o evento, tornando update e delete apenas a quem criou o evento
 
 
 - Validação nos forms de criação de eventos e usuários
