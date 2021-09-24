@@ -19,14 +19,9 @@
 
     <form action="#" th:action="@{/concluir-cadastro}" th:object="${usr}" method="POST">
 
-        <label for="nomeUsr">Nome</label>
+        <label for="nomeUsr">Nome de usuário</label>
         <input type="text" id="nomeUsr" th:field="*{nomeUsr}" name="nomeUsr">
         <p th:if="${#fields.hasErrors('nomeUsr')}" th:errors="*{nomeUsr}">Erro nome</p>
-        <br><br>
-
-        <label for="sobrenomeUsr">Sobrenome</label>
-        <input type="text" id="sobrenomeUsr" th:field="*{sobrenomeUsr}" name="sobrenomeUsr">
-        <p th:if="${#fields.hasErrors('sobrenomeUsr')}" th:errors="*{sobrenomeUsr}">Erro sobrenome</p>
         <br><br>
 
         <label for="emailUsr">Email</label>

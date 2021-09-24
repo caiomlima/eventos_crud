@@ -16,9 +16,6 @@ public class UserModel {
     @NotNull @NotEmpty @Size(min = 1, max = 100, message = "Digite o seu nome")
     private String nomeUsr;
 
-    @NotNull @NotEmpty @Size(min = 1, max = 100, message = "Digite o seu sobrenome")
-    private String sobrenomeUsr;
-
     @NotNull @NotEmpty @Column(unique = true)
     private String emailUsr;
 
@@ -39,14 +36,12 @@ public class UserModel {
     public UserModel(String nomeUsr, String emailUsr, String senhaUsr, String sobrenomeUsr) {
         super();
         this.nomeUsr = nomeUsr;
-        this.sobrenomeUsr = sobrenomeUsr;
         this.emailUsr = emailUsr;
         this.senhaUsr = senhaUsr;
     }
 
-    public UserModel(String nomeUsr, String emailUsr, String senhaUsr, String sobrenomeUsr, Collection<RoleModel> role) {
+    public UserModel(String nomeUsr, String emailUsr, String senhaUsr, Collection<RoleModel> role) {
         this.nomeUsr = nomeUsr;
-        this.sobrenomeUsr = sobrenomeUsr;
         this.emailUsr = emailUsr;
         this.senhaUsr = senhaUsr;
         this.role = role;
@@ -57,9 +52,6 @@ public class UserModel {
 
     public String getNomeUsr() { return nomeUsr; }
     public void setNomeUsr(String nomeUsr) { this.nomeUsr = nomeUsr; }
-
-    public String getSobrenomeUsr() { return sobrenomeUsr; }
-    public void setSobrenomeUsr(String sobrenomeUsr) { this.sobrenomeUsr = sobrenomeUsr; }
 
     public String getEmailUsr() { return emailUsr; }
     public void setEmailUsr(String emailUsr) { this.emailUsr = emailUsr; }

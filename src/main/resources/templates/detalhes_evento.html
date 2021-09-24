@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento - Eventos Hoje</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="https://kit.fontawesome.com/cdf8c5431e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div th:replace="fragments/header"></div>  
+
+    <div>
+        <p th:text="${evento.idEvt}"></p>  
+        <p th:text="${evento.nomeEvt}"></p>
+        <p th:text="${evento.descEvt}"></p>
+        <p th:text="${evento.qtdPessEvt}"></p>
+        <p th:text="${evento.regiaoEvt}"></p>
+        <p th:text="${evento.localEvt}"></p>
+        <p th:text="${evento.numEndEvt}"></p>
+        <p th:text="${evento.cepEvt}"></p>
+        <p th:text="${evento.complEvt}"></p>
+        <p th:text="${#dates.format(evento.dataInicioEvt, 'dd/MM/yyy')}"></p>
+        <p th:text="${#dates.format(evento.dataFimEvt, 'dd/MM/yyy')}"></p>
+        <p th:text="${evento.orgEvt}"></p>
+    </div>
+
+    <div th:replace="fragments/footer"></div>
+
+</body>
+
+</html>
+
+</table>

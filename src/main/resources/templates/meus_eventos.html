@@ -23,7 +23,32 @@
 
     <br>
 
-    <table>
+    <div class="eventos-container">
+
+        <div class="evento-content" th:each="evento : ${evt}">
+            <div class="content">
+                <div class="evento-content-datas">
+                    <div th:text="${#dates.format(evento.dataInicioEvt, 'dd/MM/yyy')}"></div> - <div th:text="${#dates.format(evento.dataFimEvt, 'dd/MM/yyyy')}"></div>
+                </div>
+    
+                <div class="evento-content-nome" th:text="${evento.nomeEvt}">
+                    <a href="#"></a>
+                </div>
+                <div class="evento-content-local" th:text="${evento.localEvt}"></div>
+    
+                <div class="evento-content-regiao" th:text="${evento.regiaoEvt}"></div>
+            </div>
+
+            <a type="button" class="btn-up" th:href="@{/editar-evento/{idEvt}(idEvt=${evento.idEvt})}">Update</a>
+            <a type="button" class="btn-del" th:href="@{/excluir-evento/{idEvt}(idEvt=${evento.idEvt})}">Excluir</a>
+        </div>
+    
+    </div>
+
+
+    
+
+    <!-- <table>
         <thead>
             <tr>
                 <th>Nome do evento</th>
@@ -60,7 +85,7 @@
                 </td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
 
 
     <div th:replace="fragments/footer"></div>

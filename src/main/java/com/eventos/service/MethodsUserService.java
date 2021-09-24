@@ -32,7 +32,6 @@ public class MethodsUserService implements IUserService {
     public UserModel saveNewUser(UserModel usr) {
         UserModel nUser = new UserModel();
         nUser.setNomeUsr(usr.getNomeUsr());
-        nUser.setSobrenomeUsr(usr.getSobrenomeUsr());
         nUser.setEmailUsr(usr.getEmailUsr());
         nUser.setSenhaUsr(passEncoder.encode(usr.getSenhaUsr()));
         nUser.setRole(Arrays.asList(new RoleModel("USER")));

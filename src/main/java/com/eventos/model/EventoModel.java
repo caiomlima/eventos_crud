@@ -6,7 +6,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import javax.websocket.OnMessage;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static javax.persistence.TemporalType.DATE;
 
 @Entity
 @Table(name = "eventos")
@@ -47,8 +52,13 @@ public class EventoModel {
 
     // Colocar o seguinte comando na database evthj:
     // ALTER TABLE `eventos` CHANGE `data_evento` `data_evento` DATE;
+    @Temporal(DATE)
+    @DateTimeFormat (pattern="dd/MM/YYYY")
     @Column(nullable = false)
     private Date dataInicioEvt;
+
+    @Temporal(DATE)
+    @DateTimeFormat (pattern="dd/MM/YYYY")
     @Column(nullable = false)
     private Date dataFimEvt;
 
