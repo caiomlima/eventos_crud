@@ -43,8 +43,8 @@ public class MethodsEventoService implements IEventoService{
     }
 
     @Override
-    public void addEvento(String nomeEvt, String descEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt, String localEvt, String numEndEvt, String cepEvt, String complEvt, Date dataInicioEvt, Date dataFimEvt, String orgEvt, String descOrgEvt, String usrEvt) {
-        evt_repo.save(new EventoModel(nomeEvt, descEvt, qtdPessEvt, regiaoEvt, endrcEvt, localEvt, numEndEvt, cepEvt, complEvt, dataInicioEvt, dataFimEvt, orgEvt, descOrgEvt, usrEvt));
+    public void addEvento(String nomeEvt, String descEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt, String localEvt, String cepEvt, String complEvt, Date dataInicioEvt, Date dataFimEvt, String orgEvt, String descOrgEvt, String usrEvt) {
+        evt_repo.save(new EventoModel(nomeEvt, descEvt, qtdPessEvt, regiaoEvt, endrcEvt, localEvt, cepEvt, complEvt, dataInicioEvt, dataFimEvt, orgEvt, descOrgEvt, usrEvt));
     }
 
     @Override

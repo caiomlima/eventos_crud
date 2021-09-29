@@ -23,7 +23,7 @@ public class EventoModel {
     @NotEmpty @Size(min = 5, max = 150, message = "Digite um nome que tenha entre 5 e 150 caracteres") @Column(nullable = false)
     private String nomeEvt;
 
-    @NotEmpty @Size(min = 10, max = 1000, message = "Digite uma descrição para o evento, que tenha entre 10 e 1000 caracteres") @Column(nullable = false)
+    @NotEmpty @Size(min = 10, max = 5000, message = "Digite uma descrição para o evento, que tenha entre 10 e 1000 caracteres") @Column(nullable = false)
     private String descEvt;
 
 //    @NotEmpty @Column(nullable = false)
@@ -41,17 +41,12 @@ public class EventoModel {
     @NotEmpty @Size(min = 10, max = 250, message = "Digite o endereço do evento, que tenha entre 10 e 250 caracteres") @Column(nullable = false)
     private String localEvt;
 
-    @NotEmpty @Column(nullable = false) @Size(min = 1, message = "Digite apenas os números do endereço")
-    private String numEndEvt;
-
     @NotEmpty @Column(nullable = false) @Size(min = 8, max = 8, message = "Digite apenas os números do cep")
     private String cepEvt;
 
     @NotEmpty @Size(min = 10, max = 250, message = "Digite o complemento do endereço do evento") @Column(nullable = false)
     private String complEvt;
 
-    // Colocar o seguinte comando na database evthj:
-    // ALTER TABLE `eventos` CHANGE `data_evento` `data_evento` DATE;
     @Temporal(DATE)
     @DateTimeFormat (pattern="dd/MM/YYYY")
     @Column(nullable = false)
@@ -76,7 +71,7 @@ public class EventoModel {
         super();
     }
 
-    public EventoModel( String nomeEvt, String descEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt, String localEvt, String numEndEvt, String cepEvt, String complEvt, Date dataInicioEvt, Date dataFimEvt, String orgEvt, String descOrgEvt, String usrEvt) {
+    public EventoModel( String nomeEvt, String descEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt, String localEvt, String cepEvt, String complEvt, Date dataInicioEvt, Date dataFimEvt, String orgEvt, String descOrgEvt, String usrEvt) {
         super();
         this.nomeEvt = nomeEvt;
         this.descEvt = descEvt;
@@ -85,7 +80,6 @@ public class EventoModel {
         this.qtdPessEvt = qtdPessEvt;
         this.regiaoEvt = regiaoEvt;
         this.localEvt = localEvt;
-        this.numEndEvt = numEndEvt;
         this.cepEvt = cepEvt;
         this.complEvt = complEvt;
         this.dataInicioEvt = dataInicioEvt;
@@ -112,9 +106,6 @@ public class EventoModel {
 
     public String getLocalEvt() { return localEvt; }
     public void setLocalEvt(String localEvt) { this.localEvt = localEvt; }
-
-    public String getNumEndEvt() { return numEndEvt; }
-    public void setNumEndEvt(String numEndEvt) { this.numEndEvt = numEndEvt; }
 
     public String getCepEvt() { return cepEvt; }
     public void setCepEvt(String cepEvt) { this.cepEvt = cepEvt; }

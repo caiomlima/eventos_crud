@@ -19,7 +19,7 @@ public interface IEventoService {
     // CRUD
     void updateEvento(EventoModel evt);
     void addEvento(String nomeEvt, String descEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt,
-                   String localEvt, String numEndEvt,String cepEvt, String complEvt, Date dataInicioEvt, Date dataFimEvt,
+                   String localEvt, String cepEvt, String complEvt, Date dataInicioEvt, Date dataFimEvt,
                    String orgEvt, String descOrgEvt, String usrEvt);
     void deleteEvento(int idEvt);
     void saveEvento(EventoModel evt);

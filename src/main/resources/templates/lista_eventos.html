@@ -23,8 +23,14 @@
     <div class="eventos-container">
 
         <div class="evento-content" th:each="evento : ${evt}">
+            <div class="evento-content-imagem">
+                Imagem eeee
+            </div>
+
             <div class="evento-content-datas">
-                <div th:text="${#dates.format(evento.dataInicioEvt, 'dd/MM/yyy')}"></div> - <div th:text="${#dates.format(evento.dataFimEvt, 'dd/MM/yyyy')}"></div>
+                <div class="gap">
+                </div> <div th:text="${#dates.format(evento.dataInicioEvt, 'dd/MM/yyy')}"></div>-<div th:text="${#dates.format(evento.dataFimEvt, 'dd/MM/yyyy')}"></div> 
+                <div class="gap"></div>
             </div>
 
             <a th:href="@{/evento/{idEvt}(idEvt=${evento.idEvt})}">

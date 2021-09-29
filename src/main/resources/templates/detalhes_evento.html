@@ -16,22 +16,72 @@
 
     <div th:replace="fragments/header"></div>  
 
-    <div>
-        <p th:text="${evento.idEvt}"></p>  
-        <p th:text="${evento.nomeEvt}"></p>
-        <p th:text="${evento.descEvt}"></p>
-        <p th:text="${evento.qtdPessEvt}"></p>
-        <p th:text="${evento.regiaoEvt}"></p>
-        <p th:text="${evento.localEvt}"></p>
-        <p th:text="${evento.numEndEvt}"></p>
-        <p th:text="${evento.cepEvt}"></p>
-        <p th:text="${evento.complEvt}"></p>
-        <p th:text="${#dates.format(evento.dataInicioEvt, 'dd/MM/yyy')}"></p>
-        <p th:text="${#dates.format(evento.dataFimEvt, 'dd/MM/yyy')}"></p>
-        <p th:text="${evento.orgEvt}"></p>
+    <div class="details-container">
+
+        <div class="details-nome">
+            <h2 th:text="${evento.nomeEvt}"></h2>
+        </div>
+
+        <div class="details-infos-container">
+
+            <div class="details-img" style="text-align: center;">
+                imagem eeeee
+            </div>
+
+            <div class="details-infos">
+                <div class="details-org">
+                    <span>Organizador: </span>
+                    <span th:text="${evento.orgEvt}"></span>
+                </div>
+    
+                <div class="details-datainic">
+                    <span>Data de inicio: </span>
+                    <span th:text="${#dates.format(evento.dataInicioEvt, 'dd/MM/yyy')}"></span>
+                </div>
+    
+                <div class="details-datafim">
+                    <span>Data de encerramento: </span>
+                    <span th:text="${#dates.format(evento.dataFimEvt, 'dd/MM/yyy')}"></span>
+                </div>
+    
+                <div class="details-regiao">
+                    <span>Região do evento: </span>
+                    <span th:text="${evento.regiaoEvt}"></span>
+                </div>
+    
+                <div class="details-local">
+                    <span>Local do evento: </span>
+                    <span th:text="${evento.localEvt}"></span>
+                </div>
+    
+                <div class="details-cep">
+                    <span>CEP do local: </span>
+                    <span th:text="${evento.cepEvt}"></span>
+                </div>
+    
+                <div class="details-complemento">
+                    <span>Complemento do endereço: </span>
+                    <span th:text="${evento.complEvt}"></span>
+                </div>
+    
+                <div class="details-qtdpess">
+                    <span>Quantidade de pessoas: </span>
+                    <span th:text="${evento.qtdPessEvt}"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="details-desc">
+            <h2 class="details-desc-title">Descrição do evento</h2> 
+
+            <h2 class="details-desc-text" th:text="${evento.descEvt}"></h2>
+        </div>
+
     </div>
 
-    <div th:replace="fragments/footer"></div>
+    
+    <!-- <div th:replace="fragments/footer"></div> -->
 
 </body>
 

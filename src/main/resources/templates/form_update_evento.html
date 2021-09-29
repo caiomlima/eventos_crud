@@ -38,12 +38,12 @@
         <!-- Quantidade de pessoas o evento -->
         <label for="qtdPessEvt">Quantidade de pessoas do evento</label>
         <select id="qtdPessEvt" th:field="*{qtdPessEvt}" name="qtdPessEvt">
-            <option value="Até 10 pessoas">Até 10 pessoas</option>
-            <option value="Até 50 pessoas">Até 50 pessoas</option>
-            <option value="Até 100 pessoas">Até 100 pessoas</option>
-            <option value="Até 250 pessoas">Até 250 pessoas</option>
-            <option value="Até 500 pessoas">Até 500 pessoas</option>
-            <option value="Mais de 500 pessoas">Mais de 500 pessoas</option>
+            <option value="Até 10">Até 10</option>
+            <option value="Até 50">Até 50</option>
+            <option value="Até 100">Até 100</option>
+            <option value="Até 250">Até 250</option>
+            <option value="Até 500">Até 500</option>
+            <option value="Mais de 500">Mais de 500</option>
         </select>
         <p th:if="${#fields.hasErrors('qtdPessEvt')}" th:errors="*{qtdPessEvt}">Erro qtdp evento</p>
         <br><br>
@@ -64,12 +64,6 @@
         <label for="localEvt">Endereço / Local do evento</label>
         <input type="text" id="localEvt" th:field="*{localEvt}" name="localEvt">
         <p th:if="${#fields.hasErrors('localEvt')}" th:errors="*{localEvt}">Erro local evento</p>
-        <br><br>
-
-        <!-- Num do endereço -->
-        <label for="numEndEvt">Número do endereço do evento</label>
-        <input type="text" id="numEndEvt" th:field="*{numEndEvt}" name="numEndEvt" inputmode="numeric">
-        <p th:if="${#fields.hasErrors('numEndEvt')}" th:errors="*{numEndEvt}">Erro numEnd evento</p>
         <br><br>
 
         <!-- CEP do endereço -->
