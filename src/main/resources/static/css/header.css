@@ -3,7 +3,6 @@
     background-color: #f1f1f1;
     padding: 20px 10px;
 }
-
 .header-evthj a {
     float: left;
     color: black;
@@ -14,17 +13,14 @@
     line-height: 25px;
     border-radius: 4px;
 }
-
 .header-evthj a.logo {
     font-size: 25px;
     font-weight: bold;
 }
-
 .header-evthj a:hover {
     background-color: #ddd;
     color: black;
 }
-
 .nav-header {
     float: right;
 }

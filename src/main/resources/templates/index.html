@@ -18,9 +18,32 @@
 <body>
     <div th:replace="fragments/header"></div>
 
-    <!-- <div class="body_container"></div> -->
 
-    <h2>Bem vindo(a) ao Eventos Hoje !!</h2>
+    <div class="home-container">
+
+        <a href="/eventos">
+            <div class="index-eventos-banner">
+                Veja todos os eventos disponíveis no momento
+            </div>
+        </a>
+
+        <div class="index-bottom-banners">
+            <a href="/categorias" class="index-categoriasevt-banner">
+                <div>
+                    Navegue pelas categorias dos eventos
+                </div>
+            </a>
+    
+            <a href="/meus-eventos" class="index-criarevt-banner">
+                <div >
+                    Crie e publique seus eventos
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
 
     <div th:replace="fragments/footer"></div>
 

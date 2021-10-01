@@ -32,13 +32,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/registration**", "/js/**", "/css/**", "/img/**", "/webjars/**").permitAll()
-                .antMatchers("/", "/login", "/cadastre-se", "/concluir-cadastro", "/eventos", "/evento/{idEvt}").permitAll()
+                .antMatchers("/", "/login", "/cadastre-se", "/concluir-cadastro", "/eventos", "/categorias", "/evento/{idEvt}").permitAll()
                 .antMatchers("/meus-eventos","/novo-evento", "/salvar-evento", "/excluir-evento/{idEvt}", "/editar-evento/{idEvt}").hasAuthority("USER").anyRequest().authenticated()
                 .and()
                 .csrf().disable()
                 .formLogin().loginPage("/login").permitAll().defaultSuccessUrl("/", true).usernameParameter("email").passwordParameter("password")
-                .and().logout().invalidateHttpSession(true).clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
-//                .and().exceptionHandling().accessDeniedPage("/access-denied");
+                .and().logout().invalidateHttpSession(true).clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/");
     }
 
     @Bean

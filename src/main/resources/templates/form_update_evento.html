@@ -19,7 +19,7 @@
 
     <h1>Editar Evento</h1>
 
-    <form action="#" th:action="@{/salvar-evento}" th:object="${evento}" method="POST">
+    <form action="#" th:action="@{/salvar-evento}" th:object="${evento}" method="POST" autocomplete="off">
         <!-- ID do evento -->
         <input type="hidden" th:field="*{idEvt}" />
 

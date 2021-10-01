@@ -14,32 +14,44 @@
 
 <body>
 
-    <div th:replace="fragments/header"></div>
+    <div class="signup-container">
 
+        <div class="right-signup"></div>
 
-    <form action="#" th:action="@{/concluir-cadastro}" th:object="${usr}" method="POST">
+        <div class="form-signup-container">
 
-        <label for="nomeUsr">Nome de usuário</label>
-        <input type="text" id="nomeUsr" th:field="*{nomeUsr}" name="nomeUsr">
-        <p th:if="${#fields.hasErrors('nomeUsr')}" th:errors="*{nomeUsr}">Erro nome</p>
-        <br><br>
+            <form action="#" th:action="@{/concluir-cadastro}" th:object="${usr}" method="POST" autocomplete="off">
 
-        <label for="emailUsr">Email</label>
-        <input type="text" id="emailUsr" th:field="*{emailUsr}" name="emailUsr">
-        <p th:if="${#fields.hasErrors('emailUsr')}" th:errors="*{emailUsr}">Erro email</p>
-        <br><br>
+                <h3 class="home-redirect"> <a class="home-redirect-link" href="/">EVTHJ</a> </h3>
+                <p>Bem vindo(a), cadastre-se para gerenciar seus eventos</p>
+        
+                <div class="floating-input">
+                    <label for="nomeUsr">Nome</label>
+                    <input type="text" id="nome-signup" th:field="*{nomeUsr}" name="nomeUsr" placeholder="Digite seu nome">
+                    <p th:if="${#fields.hasErrors('nomeUsr')}" th:errors="*{nomeUsr}">Erro nome</p>
+                </div>
+        
+                <div class="floating-input">
+                    <label for="emailUsr">E-mail</label>
+                    <input type="text" id="emai-signup" th:field="*{emailUsr}" name="emailUsr" placeholder="Digite seu e-mail">
+                    <p th:if="${#fields.hasErrors('emailUsr')}" th:errors="*{emailUsr}">Erro email</p>
+                </div>
+        
+                <div class="floating-input">
+                    <label for="senhaUsr">Senha</label>
+                    <input type="password" id="password-signup" th:field="*{senhaUsr}" name="senhaUsr" placeholder="Digite uma senha">
+                    <p th:if="${#fields.hasErrors('senhaUsr')}" th:errors="*{senhaUsr}">Erro senha</p>
+                </div>
+        
+                <button type="submit" style="cursor: pointer;" class="button-form login-btn" value="CadastrarNovoUsr">Concluir cadastro</button>
 
-        <label for="senhaUsr">Senha</label>
-        <input type="text" id="senhaUsr" th:field="*{senhaUsr}" name="senhaUsr">
-        <p th:if="${#fields.hasErrors('senhaUsr')}" th:errors="*{senhaUsr}">Erro senha</p>
-        <br><br>
+                <p class="signin-redirect"> <a class="signin-redirect-link" href="/login">Login</a> </p>
+        
+            </form>
 
+        </div>
 
-        <button type="submit" style="cursor: pointer;" class="button" value="CadastrarNovoUsr">Concluir cadastro</button>
-    </form>
-
-
-    <div th:replace="fragments/footer"></div>
+    </div>
 
 </body>
 

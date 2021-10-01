@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias de eventos - Eventos Hoje</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="https://kit.fontawesome.com/cdf8c5431e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div th:replace="fragments/header"></div>
+
+    <h1>categorias de eventos</h1>
+
+    <!-- <div class="eventos-banner">
+        <div>Todos os eventos disponíveis no momento</div>
+    </div>
+
+    <div class="eventos-container">
+
+        <div class="evento-content" th:each="evento : ${evt}">
+            <div class="evento-content-imagem">
+                Imagem eeee
+            </div>
+
+            <div class="evento-content-datas">
+                <div class="gap">
+                </div> <div th:text="${#dates.format(evento.dataInicioEvt, 'dd/MM/yyy')}"></div>-<div th:text="${#dates.format(evento.dataFimEvt, 'dd/MM/yyyy')}"></div> 
+                <div class="gap"></div>
+            </div>
+
+            <a th:href="@{/evento/{idEvt}(idEvt=${evento.idEvt})}">
+                <div class="evento-content-nome" th:text="${evento.nomeEvt}"></div>
+            </a>
+            
+            <div class="evento-content-local" th:text="${evento.localEvt}"></div>
+
+            <div class="evento-content-regiao" th:text="${evento.regiaoEvt}"></div>
+        </div>
+    
+    </div> -->
+
+    <div th:replace="fragments/footer"></div>
+
+</body>
+
+</html>

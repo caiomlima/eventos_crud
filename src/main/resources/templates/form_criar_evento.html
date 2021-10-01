@@ -19,7 +19,7 @@
 
     <h1>Novo Evento</h1>
 
-    <form th:action="@{/salvar-evento}" th:object="${evento}" method="post">
+    <form th:action="@{/salvar-evento}" th:object="${evento}" method="post" autocomplete="off">
 
         <!-- Nome do evento -->
         <label for="nomeEvt">Nome do evento</label>
