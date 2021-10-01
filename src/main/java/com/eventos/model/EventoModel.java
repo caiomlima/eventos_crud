@@ -27,9 +27,6 @@ public class EventoModel {
     private String descEvt;
 
 //    @NotEmpty @Column(nullable = false)
-//    private String assuntoEvt;
-//
-//    @NotEmpty @Column(nullable = false)
 //    private String categoriaEvt;
 
     @NotEmpty @Column(nullable = false)

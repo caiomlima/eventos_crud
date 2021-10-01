@@ -31,7 +31,7 @@ public class CadastroUserController {
         if (existente != null) {
             result.rejectValue("emailUsr", null, "Email já está em uso");
         }
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
             return "form_cadastro_user";
         }
         user_serv.saveNewUser(nUser);

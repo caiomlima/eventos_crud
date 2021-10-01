@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface IEventoService {
 
-    // Lista todos os eventos, independente de quem fez
+    // Lista todos os eventos
     List<EventoModel> getEventos();
 
     // Lista os eventos de um organizador

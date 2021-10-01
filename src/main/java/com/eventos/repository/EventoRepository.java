@@ -10,9 +10,11 @@ import java.util.Optional;
 
 @Repository
 public interface EventoRepository extends JpaRepository<EventoModel, Integer> {
+
     @Autowired
     List<EventoModel> findByUsrEvt(String nomeUsr);
 
     @Autowired
     Optional<EventoModel> findById(int idEvt);
+
 }
