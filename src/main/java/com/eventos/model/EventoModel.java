@@ -26,8 +26,8 @@ public class EventoModel {
     @NotEmpty @Size(min = 10, max = 5000, message = "Digite uma descrição para o evento, que tenha entre 10 e 1000 caracteres") @Column(nullable = false)
     private String descEvt;
 
-//    @NotEmpty @Column(nullable = false)
-//    private String categoriaEvt;
+    @NotEmpty @Column(nullable = false)
+    private String categoriaEvt;
 
     @NotEmpty @Column(nullable = false)
     private String qtdPessEvt;
@@ -68,12 +68,11 @@ public class EventoModel {
         super();
     }
 
-    public EventoModel( String nomeEvt, String descEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt, String localEvt, String cepEvt, String complEvt, Date dataInicioEvt, Date dataFimEvt, String orgEvt, String descOrgEvt, String usrEvt) {
+    public EventoModel( String nomeEvt, String descEvt, String categoriaEvt, String qtdPessEvt, String regiaoEvt, String endrcEvt, String localEvt, String cepEvt, String complEvt, Date dataInicioEvt, Date dataFimEvt, String orgEvt, String descOrgEvt, String usrEvt) {
         super();
         this.nomeEvt = nomeEvt;
         this.descEvt = descEvt;
-//        this.assuntoEvt = assuntoEvt;
-//        this.categoriaEvt = categoriaEvt;
+        this.categoriaEvt = categoriaEvt;
         this.qtdPessEvt = qtdPessEvt;
         this.regiaoEvt = regiaoEvt;
         this.localEvt = localEvt;
@@ -94,6 +93,9 @@ public class EventoModel {
 
     public String getDescEvt() { return descEvt; }
     public void setDescEvt(String descEvt) { this.descEvt = descEvt; }
+
+    public String getCategoriaEvt() { return categoriaEvt; }
+    public void setCategoriaEvt(String categoriaEvt) { this.categoriaEvt = categoriaEvt; }
 
     public String getQtdPessEvt() { return qtdPessEvt; }
     public void setQtdPessEvt(String qtdPessEvt) { this.qtdPessEvt = qtdPessEvt; }

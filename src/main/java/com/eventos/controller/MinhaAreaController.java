@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.Optional;
 
 @Controller
-public class MeusEventosController {
+public class MinhaAreaController {
 
     @Autowired
     IEventoService evt_serv;
@@ -28,11 +28,11 @@ public class MeusEventosController {
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
 
-    @RequestMapping(value = "/meus-eventos", method = RequestMethod.GET)
-    public String myEventsPg(Model model) {
+    @RequestMapping(value = "/minha-area", method = RequestMethod.GET)
+    public String myAreaPg(Model model) {
         String name = getUsernameLogged(model);
         model.addAttribute("evt", evt_serv.getEventosByUserName(name)) ;
-        return "meus_eventos";
+        return "minha_area";
     }
 
     private String getUsernameLogged(Model model) {

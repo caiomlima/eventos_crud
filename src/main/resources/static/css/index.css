@@ -50,7 +50,7 @@ a {
     background: linear-gradient(to right, #3494e6, #ec6ead); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 6rem;
     font-size: 30px;
-    height: 21vh;
+    height: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,9 +85,11 @@ a {
 
 
 
-/* Lista de eventos */
+/* PG de lista de eventos */
 .eventos-banner {
-    background-image: linear-gradient(#c300ff, #8400ff);
+    background: #3494e6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3494e6, #ec6ead); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3494e6, #ec6ead); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 6rem;
     font-size: 30px;
     text-align: center;
@@ -135,6 +137,18 @@ a {
 
 
 
+/* Pg de categorias de eventos */
+.categorias-banner {
+    background: #800080; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #800080, #ffc0cb); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #800080, #ffc0cb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 6rem;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+
 /* Pg detalhes do evento */
 .details-container {
     border: solid black 1px;    
@@ -163,14 +177,7 @@ a {
     justify-content: space-around;
     padding: 15px;
 }
-.details-org { margin-bottom: 15px; font-size: 20px; }
-.details-datainic { margin-bottom: 15px; font-size: 20px; }
-.details-datafim { margin-bottom: 15px; font-size: 20px; }
-.details-regiao { margin-bottom: 15px; font-size: 20px; }
-.details-local { margin-bottom: 15px; font-size: 20px; }
-.details-cep { margin-bottom: 15px; font-size: 20px; }
-.details-complemento { margin-bottom: 15px; font-size: 20px;  }
-.details-qtdpess { margin-bottom: 15px; font-size: 20px;  }
+.dtls {margin-bottom: 15px; font-size: 20px;}
 .details-desc {
     padding: 0 7rem 0 7rem;
     font-size: 13px;
@@ -302,4 +309,77 @@ label {
 
 
 
-/* Pg de criação de evento */
+/* Pg de criação e update de eventos */
+.form {
+
+}
+
+
+
+/* Pg da minha área */
+.perfil-container {
+    margin: 0 12rem 0 12rem;
+}
+.perfil-banner {
+    text-align: center;
+    font-size: 19px;
+    padding: 4rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background: #00f260; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00f260, #0575e6); /* Chrome 5-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00f260, #0575e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.perfil-criar-evt-txt {
+    font-size: 30px;
+}
+.bot-prf {
+    font-size: 30px;
+    margin-top: 25px;
+}
+.lista-meus-evts {
+    text-align: center;
+    padding: 2rem 12rem 2rem 12rem;
+    border-bottom: solid 1px black;
+    font-size: 30px;
+}
+.meus-eventos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 4rem 12rem 0 12rem;
+}
+.meu-evento-content {
+    background-color: #f3f3f3;
+    border: solid black 1px;
+    min-width: 310px;
+    min-height: 327px;
+    /* min-height: 163px; */
+    flex: 0 0 20%;
+    margin-bottom: 55px;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.meu-evento-content-imagem {
+    width: 310px;
+    height: 157px;
+    min-width: 310px;
+    min-height: 157px;
+    border-bottom: solid 1px black;
+}
+.meu-evento-content-nome {
+    font-size: 19px;
+    color: #242424;
+}
+.meu-evento-content-datas {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    text-align: justify;
+}
+.gap {
+    margin:  0 25px 0 25px;
+}

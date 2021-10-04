@@ -16,39 +16,40 @@
 
     <div th:replace="fragments/header"></div>
 
+    <a href="/novo-evento" class="perfil-banner">
+        <!-- Lista dos eventos de <div sec:authentication="name"></div> -->
+        <h1 class="perfil-criar-evt-txt">Bem vindo(a) de volta, vamos criar um novo evento ?</h1>
+        <h1 class="bot-prf">Faça um novo evento e publique-o</h1> </a>
+    </a>
 
-    <div class="eventos-list">
-        Lista dos eventos de <div sec:authentication="name"></div>
+    <div class="perfil-container">
+        
+        <div class="lista-meus-evts">
+            Seus eventos
+        </div>
+
     </div>
 
-    <br>
+    <div class="meus-eventos-container">
 
-    <a href="/novo-evento">
-        <h2>Criar um evento novo</h2>
-    </a>
-    
-    <br>
-
-    <div class="eventos-container">
-
-        <div class="evento-content" th:each="evento : ${evt}">
-            <div class="content">
-                <div class="evento-content-imagem">
+        <div class="meu-evento-content" th:each="evento : ${evt}">
+            <div>
+                <div class="meu-evento-content-imagem">
                     Imagem eeee
                 </div>
     
-                <div class="evento-content-datas">
+                <div class="meu-evento-content-datas">
                     <div class="gap">
                     </div> <div th:text="${#dates.format(evento.dataInicioEvt, 'dd/MM/yyy')}"></div>-<div th:text="${#dates.format(evento.dataFimEvt, 'dd/MM/yyyy')}"></div> 
                     <div class="gap"></div>
                 </div>
     
-                <div class="evento-content-nome" th:text="${evento.nomeEvt}">
+                <div class="meu-evento-content-nome" th:text="${evento.nomeEvt}">
                     <a href="#"></a>
                 </div>
-                <div class="evento-content-local" th:text="${evento.localEvt}"></div>
+                <div class="meu-evento-content-local" th:text="${evento.localEvt}"></div>
     
-                <div class="evento-content-regiao" th:text="${evento.regiaoEvt}"></div>
+                <div class="meu-evento-content-regiao" th:text="${evento.regiaoEvt}"></div>
             </div>
 
             <a type="button" class="btn-up" th:href="@{/editar-evento/{idEvt}(idEvt=${evento.idEvt})}">Update</a>

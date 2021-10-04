@@ -29,42 +29,47 @@
             </div>
 
             <div class="details-infos">
-                <div class="details-org">
+                <div class="details-org dtls">
                     <span>Organizador: </span>
                     <span th:text="${evento.orgEvt}"></span>
                 </div>
+
+                <div class="details-catg dtls">
+                    <span>Tipo de evento: </span>
+                    <span th:text="${evento.categoriaEvt}"></span>
+                </div>
     
-                <div class="details-datainic">
+                <div class="details-datainic dtls">
                     <span>Data de inicio: </span>
                     <span th:text="${#dates.format(evento.dataInicioEvt, 'dd/MM/yyy')}"></span>
                 </div>
     
-                <div class="details-datafim">
+                <div class="details-datafim dtls">
                     <span>Data de encerramento: </span>
                     <span th:text="${#dates.format(evento.dataFimEvt, 'dd/MM/yyy')}"></span>
                 </div>
     
-                <div class="details-regiao">
+                <div class="details-regiao dtls">
                     <span>Região do evento: </span>
                     <span th:text="${evento.regiaoEvt}"></span>
                 </div>
     
-                <div class="details-local">
+                <div class="details-local dtls">
                     <span>Local do evento: </span>
                     <span th:text="${evento.localEvt}"></span>
                 </div>
     
-                <div class="details-cep">
+                <div class="details-cep dtls">
                     <span>CEP do local: </span>
                     <span th:text="${evento.cepEvt}"></span>
                 </div>
     
-                <div class="details-complemento">
+                <div class="details-complemento dtls">
                     <span>Complemento do endereço: </span>
                     <span th:text="${evento.complEvt}"></span>
                 </div>
     
-                <div class="details-qtdpess">
+                <div class="details-qtdpess dtls">
                     <span>Quantidade de pessoas: </span>
                     <span th:text="${evento.qtdPessEvt}"></span>
                 </div>

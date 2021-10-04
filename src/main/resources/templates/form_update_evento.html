@@ -35,6 +35,21 @@
         <p th:if="${#fields.hasErrors('descEvt')}" th:errors="*{descEvt}">Erro desc evento</p>
         <br><br>
 
+        <!-- Categoria do evento -->
+        <label for="categoriaEvt">Categoria do evento</label>
+        <select name="categoriaEvt" id="categoriaEvt" th:field="*{categoriaEvt}">
+            <option value="Palestra">Palestra</option>
+            <option value="Workshop">Workshop</option>
+            <option value="Show musical">Show musical</option>
+            <option value="Feira">Feira</option>
+            <option value="Lazer">Lazer</option>
+            <option value="Social">Social</option>
+            <option value="Religioso">Religioso</option>
+            <option value="Outros">Outros</option>
+        </select>
+        <p th:if="${#fields.hasErrors('categoriaEvt')}" th:errors="*{categoriaEvt}">Erro categoria do evento</p>
+        <br><br>
+
         <!-- Quantidade de pessoas o evento -->
         <label for="qtdPessEvt">Quantidade de pessoas do evento</label>
         <select id="qtdPessEvt" th:field="*{qtdPessEvt}" name="qtdPessEvt">

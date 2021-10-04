@@ -15,8 +15,9 @@
 
         <div class="nav-header">
             <a href="/eventos" class="eventos-btn">Eventos</a>
-            <a sec:authorize="hasAuthority('USER')" href="/novo-evento" class="eventos-btn">Criar eventos</a>
-            <a sec:authorize="hasAuthority('USER')" href="/meus-eventos" class="eventos-btn">Meus Eventos</a>
+            <a href="/categorias" class="eventos-btn">Categorias</a>
+            <!-- <a sec:authorize="hasAuthority('USER')" href="/novo-evento" class="eventos-btn">Criar eventos</a> -->
+            <a sec:authorize="hasAuthority('USER')" href="/minha-area" class="eventos-btn">Minha área</a>
             <a sec:authorize="isAnonymous()" href="/login" class="login-btn">Login</a>
             <a sec:authorize="isAnonymous()" href="/cadastre-se" class="cadastro-btn">Cadastre-se</a>
             <a sec:authorize="isAuthenticated()" href="/logout" class="cadastro-btn">Logout</a>
