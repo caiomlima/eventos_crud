@@ -16,6 +16,7 @@ Tecnologias usadas:
 - Thymeleaf (Substituindo o JSP)
 - JPA (Hibernate)
 - MySQL
+- Maven
 
 Recusrsos do site:
 

@@ -45,9 +45,9 @@ a {
 .home-container {
 }
 .index-eventos-banner {
-    background: #3494e6; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #3494e6, #ec6ead); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #3494e6, #ec6ead); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #eecda3; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #eecda3, #ef629f); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #eecda3, #ef629f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 6rem;
     font-size: 30px;
     height: 20vh;
@@ -72,9 +72,9 @@ a {
 }
 .index-criarevt-banner {
     flex: 50%;
-    background: #00f260; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #00f260, #0575e6); /* Chrome 5-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #00f260, #0575e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ec6f66; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #ec6f66, #f3a183); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #ec6f66, #f3a183); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 6rem;
     font-size: 30px;
     height: 22vh;
@@ -87,9 +87,9 @@ a {
 
 /* PG de lista de eventos */
 .eventos-banner {
-    background: #3494e6; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #3494e6, #ec6ead); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #3494e6, #ec6ead); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #eecda3; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #eecda3, #ef629f); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #eecda3, #ef629f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 6rem;
     font-size: 30px;
     text-align: center;
@@ -214,9 +214,9 @@ a {
 }
 .left-login {
     flex: 30%;
-    background: #ff0099; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ff0099, #493240); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ff0099, #493240); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ec6f66; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #ec6f66, #f3a183); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #ec6f66, #f3a183); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .signup-container {
@@ -233,9 +233,9 @@ a {
 }
 .right-signup {
     flex: 30%;
-    background: #8e2de2; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #8e2de2, #4a00e0); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #8e2de2, #4a00e0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ec6f66; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #ec6f66, #f3a183); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #ec6f66, #f3a183); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #email-login, #password-login, #nome-signup, #emai-signup, #password-signup {
@@ -327,9 +327,9 @@ label {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
-    background: #00f260; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #00f260, #0575e6); /* Chrome 5-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #00f260, #0575e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ec6f66; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #ec6f66, #f3a183); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #ec6f66, #f3a183); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .perfil-criar-evt-txt {
     font-size: 30px;
